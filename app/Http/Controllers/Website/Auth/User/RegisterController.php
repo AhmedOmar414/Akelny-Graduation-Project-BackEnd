@@ -13,6 +13,7 @@ class RegisterController extends Controller
     }
 
     public function userRegister(Request $request){
+
        $data = $request->all();
 
         $request->validate([
@@ -21,6 +22,9 @@ class RegisterController extends Controller
             'password' => 'required|confirmed',
             'mobile' => 'required|integer'
         ]);
+
+//        dd("im passed from vaidaation ");
+
 
         User::create($data);
         return view('website.home.home_page');

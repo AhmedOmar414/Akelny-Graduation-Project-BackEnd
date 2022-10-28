@@ -45,10 +45,11 @@
 
 
 
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
         <form action="{{url('user/user-register')}}" method="POST" class="sign-up-form">
-            @foreach($errors->all() as $error)
-                <p>{{ $error }}</p>
-            @endforeach
+
             @csrf
             <h2 class="title">SIGN UP</h2>
 
@@ -73,7 +74,7 @@
             </div>
             <div class="input-field">
                 <i class="bi bi-lock-fill"></i>
-                <input type="password" placeholder="confirm Password" id="field" name="password-confirmation">
+                <input type="password" placeholder="confirm Password" id="field" name="password_confirmation">
             </div>
             <input type="submit" value="Sign up" class="Btn">
             <p class="social-text">Or Sign in with social platform</p>
