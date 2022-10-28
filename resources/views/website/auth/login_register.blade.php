@@ -43,26 +43,37 @@
             <p class="account-text">Dont have an account? <a href="#" id="sign-up-btn2">SIGN UP</a></p>
         </form>
 
-        <form action="" class="sign-up-form">
+
+
+        <form action="{{url('user/user-register')}}" method="POST" class="sign-up-form">
+            @foreach($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+            @csrf
             <h2 class="title">SIGN UP</h2>
 
             <div class="input-field">
                 <i class="bi bi-person-fill"></i>
-                <input type="text" placeholder="Name" id="field">
+                <input type="text" placeholder="Name" id="field" name="name">
             </div>
 
             <div class="input-field">
                 <i class="bi bi-envelope-fill"></i>
-                <input type="text" placeholder="Email" id="field">
+                <input type="text" placeholder="Email" id="field" name="email">
+            </div>
+
+            <div class="input-field">
+                <i class="bi bi-envelope-fill"></i>
+                <input type="number" placeholder="Phone Number" id="field" name="mobile">
             </div>
 
             <div class="input-field">
                 <i class="bi bi-lock-fill"></i>
-                <input type="password" placeholder="Password" id="field">
+                <input type="password" placeholder="Password" id="field" name="password">
             </div>
             <div class="input-field">
                 <i class="bi bi-lock-fill"></i>
-                <input type="password" placeholder="confrm Password" id="field">
+                <input type="password" placeholder="confirm Password" id="field" name="password-confirmation">
             </div>
             <input type="submit" value="Sign up" class="Btn">
             <p class="social-text">Or Sign in with social platform</p>

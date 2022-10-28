@@ -7,4 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'user/'],function (){
     Route::get('auth-page',[RegisterController::class,'returnAuthPage']);
+    Route::post('user-register',[RegisterController::class, 'userRegister']);
 });
+
+
