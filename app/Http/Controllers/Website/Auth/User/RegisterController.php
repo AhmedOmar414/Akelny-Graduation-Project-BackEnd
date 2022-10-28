@@ -10,4 +10,7 @@ class RegisterController extends Controller
     public function returnAuthPage(){
         return view('website.auth.login_register');
     }
+public function userLogin (Request $request){
+
+}
 }
