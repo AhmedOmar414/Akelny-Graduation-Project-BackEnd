@@ -15,6 +15,7 @@ class User extends Authenticatable
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     /**
      * The attributes that are mass assignable.
      *
@@ -25,13 +26,20 @@ class User extends Authenticatable
 >>>>>>> 9e87834df378df40bb852baeb9cea2eeb78fa132
 =======
 >>>>>>> 9e87834df378df40bb852baeb9cea2eeb78fa132
+=======
+>>>>>>> 9e87834df378df40bb852baeb9cea2eeb78fa132
     protected $fillable = [
         'name',
         'email',
         'password',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         'mobile'
+=======
+        'user_type_id',
+        'mobile',
+>>>>>>> 9e87834df378df40bb852baeb9cea2eeb78fa132
 =======
         'user_type_id',
         'mobile',
