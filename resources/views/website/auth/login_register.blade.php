@@ -13,16 +13,23 @@
 <div class="Container">
     <div class="signin-signup ">
 
-        <form action="" class="sign-in-form ">
-            <h2 class="title">SIGN IN</h2>
+        <form action="{{route('login')}}" method="POST"  class="sign-in-form ">
+            @csrf
 
+            @include('alerts.alert')
+            @include('alerts.success')
+            @include('alerts.error')
+            @foreach($errors->all() as $error)
+                <div style="color: darkred">{{ $error }}</div>
+            @endforeach
+            <h2 class="title">LOGIN IN</h2>
             <div class="input-field">
                 <i class="bi bi-person-fill"></i>
-                <input type="text" placeholder="Username" id="field">
+                <input type="text" placeholder="Email" name="email" id="field" >
             </div>
             <div class="input-field">
                 <i class="bi bi-lock-fill"></i>
-                <input type="password" placeholder="Password" id="field">
+                <input type="password" placeholder="Password"  name="password" id="field" required>
             </div>
             <input type="submit" value="Login" class="Btn">
             <p class="social-text">Or Sign in with social platform</p>
@@ -45,7 +52,10 @@
 
 
 
-        <form action="{{url('user/user-register')}}" method="POST" class="sign-up-form">
+
+
+
+        <form action="{{route('register')}}" method="POST" class="sign-up-form">
             @foreach($errors->all() as $error)
                 <p>{{ $error }}</p>
             @endforeach
@@ -54,7 +64,7 @@
 
             <div class="input-field">
                 <i class="bi bi-person-fill"></i>
-                <input type="text" placeholder="Name" id="field" name="name">
+                <input type="text" placeholder="Name" id="field" name="name" required>
             </div>
 
             <div class="input-field">
@@ -64,16 +74,16 @@
 
             <div class="input-field">
                 <i class="bi bi-envelope-fill"></i>
-                <input type="number" placeholder="Phone Number" id="field" name="mobile">
+                <input type="number" placeholder="Phone Number" id="field" name="mobile" required>
             </div>
 
             <div class="input-field">
                 <i class="bi bi-lock-fill"></i>
-                <input type="password" placeholder="Password" id="field" name="password">
+                <input type="password" placeholder="Password" id="field" name="password" required>
             </div>
             <div class="input-field">
                 <i class="bi bi-lock-fill"></i>
-                <input type="password" placeholder="confirm Password" id="field" name="password-confirmation">
+                <input type="password" placeholder="confirm Password" id="field" name="password_confirmation" required>
             </div>
             <input type="submit" value="Sign up" class="Btn">
             <p class="social-text">Or Sign in with social platform</p>

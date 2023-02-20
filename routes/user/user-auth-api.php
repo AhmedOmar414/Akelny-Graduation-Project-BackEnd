@@ -6,12 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'user/'],function (){
-    Route::get('auth-page',[RegisterController::class,'returnAuthPage']);
-
-    Route::post('user-login',[RegisterController::class,'userLogin']);
-
-    Route::post('user-register',[RegisterController::class, 'userRegister']);
-//>>>>>>> abba9bb16f585a3425568b830ce5f43e67a047fc
+    Route::get('auth-page',[RegisterController::class,'returnAuthPage'])->name('login-register-form');
+    Route::post('user-register',[RegisterController::class, 'userRegister'])->name('register');
+    Route::get('logout',[RegisterController::class,'logout'])->name('logout');
+    Route::post('user-login',[LoginController::class,'userLogin'])->name('login');
 });
-
 

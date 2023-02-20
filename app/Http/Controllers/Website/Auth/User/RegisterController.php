@@ -1,32 +1,28 @@
 <?php
-
 namespace App\Http\Controllers\Website\Auth\User;
-
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
     public function returnAuthPage(){
         return view('website.auth.login_register');
     }
-
-public function userLogin (Request $request){
-
-}
-
-    public function userRegister(Request $request){
-       $data = $request->all();
-
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed',
-            'mobile' => 'required|integer'
+    public function userRegister(RegisterRequest $request)
+    {
+        $data = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'password' => bcrypt($request->password)
         ]);
-
-        User::create($data);
+        auth()->loginUsingId($data->id);
         return view('website.home.home_page');
+    }
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login-register-form');
     }
 }
