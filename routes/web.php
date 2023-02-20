@@ -17,16 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('home',[LoginController::class,'home'])->name('home');
-=======
-Route::get('/dashboard',function (){
-   return view('dashboard.layout.index');
->>>>>>> 9e87834df378df40bb852baeb9cea2eeb78fa132
-=======
-Route::get('/dashboard',function (){
-   return view('dashboard.layout.index');
->>>>>>> 9e87834df378df40bb852baeb9cea2eeb78fa132
+    Route::get('home', [LoginController::class, 'home'])->name('home');
 });
+Route::get('/dashboard',function (){
+   return view('dashboard.layout.index');
+});
+
