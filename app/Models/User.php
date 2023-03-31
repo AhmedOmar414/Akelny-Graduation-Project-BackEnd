@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    //user types
+    CONST ADMIN = 0;
+    CONST CLIENT = 1;
+    CONST RESTAURANT = 2;
+
     protected $fillable = [
         'name',
         'email',
@@ -19,6 +24,7 @@ class User extends Authenticatable
         'user_type_id',
         'mobile',
     ];
+
     protected $hidden = [
         'password',
         'remember_token',
