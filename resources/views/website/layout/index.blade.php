@@ -413,14 +413,14 @@
 
                 <div class="item-offers">
                     <a href="website/trendingPage.html" class="likPages">
-                        <img src="website/images/table.jpg" alt="">
+                        <img src="{{asset("website/images/table.jpg")}}" alt="">
                         <div class="text-offer">EXPLORE</div>
                     </a>
                 </div>
 
                 <div class="item-offers">
                     <a href="website/trendingPage.html" class="likPages">
-                        <img src="website/images/spac.jpg" alt="">
+                        <img src="{{asset("website/images/spac.jpg")}}" alt="">
                         <div class="text-offer">OFFER</div>
                     </a>
                 </div>
@@ -459,7 +459,7 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/noodle.webp" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/noodle.webp")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -482,7 +482,7 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/salad.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -505,7 +505,7 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/beef.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -528,7 +528,7 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/salad.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -576,7 +576,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/tomato-soup.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/tomato-soup.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -604,7 +604,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/spaghetti.jpeg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/spaghetti.jpeg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -632,7 +632,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/French-food.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/French-food.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -660,7 +660,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/seafood-paella.webp" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/seafood-paella.webp")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -688,7 +688,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/noodle.webp" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/noodle.webp")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -716,7 +716,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/salad.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -744,7 +744,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/beef.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -772,7 +772,7 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="website/images/istock.jpg" alt=""></a>
+                            <a href="website/menuePage.html"><img src="{{asset("website/images/istock.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
@@ -817,7 +817,7 @@
             <div class="card-sales ">
                 <div class="row-sales ">
                     <div class="up-part">
-                        <a href="website/menuePage.html"><img src="website/images/istock.jpg" alt=""></a>
+                        <a href="website/menuePage.html"><img src="{{asset("website/images/istock.jpg")}}" alt=""></a>
                         <div class="text-views ">
                             <p>Promoted</p>
                             <button type="button" class="views-btn  "  >
@@ -842,7 +842,7 @@
             <div class="card-sales ">
                 <div class="row-sales ">
                     <div class="up-part">
-                        <a href="website/menuePage.html"><img src="website/images/beef.jpg" alt=""></a>
+                        <a href="website/menuePage.html"><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
                         <div class="text-views ">
                             <p>Promoted</p>
                             <button type="button" class="views-btn  "  >
@@ -867,7 +867,7 @@
             <div class="card-sales ">
                 <div class="row-sales">
                     <div class="up-part">
-                        <a href="website/menuePage.html"><img src="website/images/salad.jpg" alt=""></a>
+                        <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                         <div class="text-views ">
                             <p>Promoted</p>
                             <button type="button" class="views-btn  "  >
@@ -901,7 +901,7 @@
 
             <div class="col-footer" style="grid-column: span 2;">
                 <div style=" width: 65px;">
-                    <img src="website/images/spoon-and-a-fork-in-a-circle-640w.png " class="logo bg-white">
+                    <img src="{{asset("website/images/spoon-and-a-fork-in-a-circle-640w.png")}}" class="logo bg-white">
                 </div>
                 <Div class="content-footer ">
                     <h5>About Us</h5>
@@ -1031,11 +1031,11 @@
             <div class="app-stors">
 
                 <div class="app-btn ">
-                    <a href="#"> <img  src="website/images/App_Store.png" alt=""></a>
+                    <a href="#"> <img src="{{asset("website/images/App_Store.png")}}" alt=""></a>
                 </div>
 
                 <div class="app-btn">
-                    <a href="#"><img  src="website/images/google-play.png" alt=""></a>
+                    <a href="#"><img src="{{asset("website/images/google-play.png")}}" alt=""></a>
                 </div>
             </div>
         </div>
@@ -1046,14 +1046,14 @@
     <div class="right d-flex" >
         <a href="website/main.html">
             <button type="button" class="bg-light">
-                <img src="website/images/home-red.png" alt="">
+                <img src="{{asset("website/images/home-red.png")}}" alt="">
                 <p class="text-danger" style="font-size: 12px;">Home</p>
             </button>
         </a>
 
         <a href="website/trendingPage.html">
             <button type="button">
-                <img src="website/images/location.png" alt="">
+                <img src="{{asset("website/images/location.png")}}" alt="">
                 <p>Trending</p>
             </button>
         </a>
@@ -1062,7 +1062,7 @@
     <div class="middle ">
         <a href="website/deliveryAddressPage.html">
             <button type="button" >
-                <img src="website/images/shopping-card.png" style="width: 35px; height: 35px;"  alt="">
+                <img src="{{asset("website/images/shopping-card.png")}}" style="width: 35px; height: 35px;"  alt="">
             </button>
         </a>
     </div>
@@ -1070,14 +1070,14 @@
     <div class="left  d-flex">
         <a href="website/favoritePage.html">
             <button type="button" >
-                <img src="website/images/heart.png"  alt="">
+                <img src="{{asset("website/images/heart.png")}}"  alt="">
                 <p>Favorite</p>
             </button>
         </a>
 
         <a href="website/myAccount.html">
             <button type="button" >
-                <img src="website/images/person.png" alt="">
+                <img src="{{asset("website/images/person.png")}}" alt="">
                 <p>Profile</p>
             </button>
         </a>
@@ -1091,7 +1091,7 @@
     <div class="popurBody ">
         <div class="links ">
             <h4 >Filter</h4>
-            <div class="text-end"><img src="website/images/close.png" onclick="close();" class="close"></div>
+            <div class="text-end"><img src="{{asset("website/images/close.png")}}" onclick="close();" class="close"></div>
         </div>
         <div class="scrolling-body" >
             <div class="body-sub-menu ">
