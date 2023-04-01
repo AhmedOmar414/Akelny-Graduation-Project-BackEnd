@@ -391,21 +391,21 @@
 
                 <div class="item-offers">
                     <a href="website/trendingPage.html" class="likPages">
-                        <img src="website/images/ballons.webp" alt="">
+                        <img src="{{asset("website/images/ballons.webp")}}" alt="">
                         <div class="text-offer">OFFER</div>
                     </a>
                 </div>
 
                 <div class="item-offers">
                     <a href="website/trendingPage.html" class="likPages">
-                        <img src="website/images/spac.jpg" alt="">
+                        <img src="{{asset("website/images/spac.jpg")}}" alt="">
                         <div class="text-offer">DISCOUNT</div>
                     </a>
                 </div>
 
                 <div class="item-offers">
                     <a href="website/trendingPage.html" class="likPages">
-                        <img src="website/images/skater-dudes.webp" alt="">
+                        <img src="{{asset("website/images/skater-dudes.webp")}}" alt="">
                         <div class="text-offer">TRY&nbsp;NOW</div>
                     </a>
                 </div>
