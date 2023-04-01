@@ -14,6 +14,6 @@
 
 <!-- Page JS -->
 <script src="{{asset('assets/dashboard/assets/js/dashboards-analytics.js')}}"></script>
-
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
