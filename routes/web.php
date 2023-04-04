@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Website\Auth\User\LoginController;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,19 +16,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
-<<<<<<< HEAD
+Route::get('/login-page',[LoginController::class,'login_page'])->name('login.page');
+Route::get('/register-page',[RegisterController::class,'register_page'])->name('register.page');
+Route::post('/register',[RegisterController::class,'register'])->name('register');
+Route::post('/login',[LoginController::class,'login'])->name('login');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('home', [LoginController::class, 'home'])->name('home');
-});
-Route::get('/dashboard',function (){
-   return view('dashboard.layout.index');
+
+    Route::get('/dashboard',function (){
+        return view('dashboard.layout.index');
+    });
+    Route::get('/main',function (){
+        return view('main');
+    });
+    Route::get('/restaurant',function (){
+        return "restaurant";
+
 });
 
-=======
-Route::get('/dashboard',function (){
-   return view('dashboard.layout.index');
-});
->>>>>>> 9e87834df378df40bb852baeb9cea2eeb78fa132
+
+
