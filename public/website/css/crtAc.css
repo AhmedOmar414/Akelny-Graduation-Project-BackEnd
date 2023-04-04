@@ -1,0 +1,241 @@
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+.buyNow .btn-dark{
+    background-color: #3a3a3a;
+    width: max-content;
+    font-size: 12px;
+    margin: 0 -4px;
+    border-radius: 1px;
+}
+.buyNow .btn-dark:hover{
+    background-color: #242424;
+}
+.createAccountPage{
+    margin: auto;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    background-color: aqua;
+}
+.pagecontainer{
+    width: 65%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    background-color: blueviolet;
+    position: relative;
+}
+.form.signin{
+    opacity: 0;
+    pointer-events: none;
+}
+.forms.show-signin .form.signin{
+    opacity: 1;
+    pointer-events: auto;
+}
+.upPart{
+    border: 1px solid rgb(224, 224, 224);
+    width: 100%;
+    padding: 20px 10px;
+}
+.headSign{
+    display: flex;
+    border-bottom: 0.1vw  solid  rgb(221, 221, 221);
+    margin-bottom: 23px;
+}
+.headSign h4{
+    font-weight: bolder;
+    font-size: 20px;
+    padding-top: 3px;
+}
+.groupSign p{
+   font-size: 14px;
+   font-weight: 500;
+   display: flex;
+   align-items: center;
+   justify-content: right;
+   color:   #666666;
+}
+.groupSign button{
+    height: 32px;
+    width: max-content;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  gray;
+    color: #fff;
+}
+.groupSign button:hover{
+   background-color: rgb(47, 111, 174);
+   color: #fff;
+}
+.GoogleButton{
+    background-color: #fff;
+    padding: 0 10px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    border: 0.1vw solid #b4b4b4;
+    transition: 0.5s;
+}
+.GoogleButton h4{
+    font-weight: 600;
+    font-size: 17px;
+    color:   #666666;
+    margin-left: 13rem;
+    margin-top: 6px;
+}
+.GoogleButton img{
+    width: 18px;
+    height: 18px;
+}
+.GoogleButton:hover{
+    cursor: pointer;
+    background-color: #ededed;
+    color: #000;
+}
+.lines{
+    display: flex;
+    margin-top: 26px;
+}
+ .hr{
+    color: rgb(163, 163, 163);
+}
+.lines p{
+    width: 6rem;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 3px;
+}
+
+ label{
+    font-size: 14px;
+    font-weight: 500;
+}
+.a_links{
+    font-size: 14px;
+    text-align: end;
+    color: rgb(0, 132, 180);
+}
+.a_links:hover{
+    color: rgb(0, 132, 180);
+}
+.registerName input{
+    height: 35px;
+}
+.upPart form .form-check{
+    width: 300px;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 78% 22.5%;
+    border: 1px solid rgb(163, 163, 163);
+    background-color: #f4f4f4;
+}
+.upPart form .form-check .form-check-panal{
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
+.upPart .form-check .form-check-input{
+    width: 30px;
+    height: 30px;
+    margin-left: 1px;
+}
+.upPart form .form-check .form-check-panal p{
+    font-size: 8px;
+    margin-left: 3px;
+}
+.upPart form .form-check .form-check-panal p a{
+    text-decoration: none;
+    color: #000;
+}
+.upPart form .form-check .form-check-panal p a:hover{
+    text-decoration:underline;
+}
+.form-check .form-check-label{
+    font-size: 16px;
+    margin: 8px 0 0 14px;
+}
+.form-check img{
+    width: 60px;
+    height: 60px;
+}
+.form-check2 .form-check-input{
+   width: 25px;
+   height: 25px;
+}
+.form-check2 label, .privasyPlcy p , .privasyPlcy p a{
+    color: #666666;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.privasyPlcy p{
+    text-align: center;
+    padding: 0px  5px;
+}
+.createAcContenue{
+    height: 80px;
+    border: 1px solid rgb(224, 224, 224);
+    border-top: none;
+    width: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 10px;
+}
+.createAcContenue button{
+    width: 220px;
+    background-color: rgb(120, 183, 58);
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: 0px 2px 0px 0px rgb(97, 145, 49);
+}
+.createAcContenue button:hover{
+    background-color: rgb(97, 145, 49);
+    color: #fff;
+}
+.billingDetails{
+    height: 80px;
+    border: 1px solid rgb(224, 224, 224);
+    width: 100%;
+    margin-top: 35px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.billingDetails h4{
+    color: #a1a0a0;
+    font-size: 20px;
+    font-weight: 600;
+}
+.orderSummary{
+    height: 200px;
+    background-color: rgb(252, 251, 251);
+    width: 18.5%;
+    border: 1px solid rgb(224, 224, 224);
+    position: absolute;
+    margin-bottom: 50px;
+    
+}
+.orderSummary h5{
+    font-weight: 600;
+}
+.orderSummary p{
+    font-size: 14.5px;
+}
+.orderSummary img{
+    width: 14px;
+    height: 14px;
+    margin-bottom: 6px;
+}

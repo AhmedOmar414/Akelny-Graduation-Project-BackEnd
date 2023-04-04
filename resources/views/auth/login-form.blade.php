@@ -27,6 +27,7 @@
             <h2>Welcome Bach</h2>
             <p>Sign in to continue</p>
         </div>
+<<<<<<< HEAD
 
         <form action="{{route('login')}}" method="POST" class="form-control">
             @foreach($errors->all() as $error)
@@ -53,6 +54,40 @@
 
         <div class="signlinks d-block">
             <p><a href="">Forgot your password?</a></p>
+=======
+<form method="POST" action="{{route('login')}}" class="form-control">
+    @csrf
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="inputs-form">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" name="email" class="form-controll" placeholder="Enter Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="password" class="form-controll" placeholder="Enter Password" id="exampleInputPassword1">
+        </div>
+    </div>
+
+    <div class="groupbuttons ">
+        <button type="submit" class="btn text-white redBtn">SIGN IN</button>
+        <button type="button" class="btn text-white btn2"><img src="{{asset('assets/website/images/facebook_logo.webp')}}" alt="">Connect with facebook</button>
+    </div>
+</form>
+
+
+
+        <div class="signlinks d-block">
+            <p><a href="./forgotPasswordPage.html">Forgot your password?</a></p>
+>>>>>>> f1cb974e63bf222da77fa69ad297a0b314db269b
             <p><a href="{{route('register.page')}}">Don't have an account? Sign up</a></p>
         </div>
     </div>

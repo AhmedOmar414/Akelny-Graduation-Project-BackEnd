@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\website\MainController;
+>>>>>>> f1cb974e63bf222da77fa69ad297a0b314db269b
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+<<<<<<< HEAD
 
 Route::get('/', function () {
     return view('main');
@@ -37,3 +42,5 @@ Route::post('/login',[LoginController::class,'login'])->name('login');
 
 
 
+=======
+>>>>>>> f1cb974e63bf222da77fa69ad297a0b314db269b

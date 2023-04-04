@@ -27,6 +27,7 @@
             <h2>Hello There.</h2>
             <p>Sign up to continue</p>
         </div>
+<<<<<<< HEAD
         <form action="{{route('register')}}" method="POST" class="form-control">
             @foreach($errors->all() as $error)
                 <li><span class="text-danger">{{ $error }}</span></li>
@@ -57,11 +58,53 @@
 
 
         </div>
+=======
+        <form method="POST" action="{{route('register')}}" class="form-control">
+           @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        <div class="inputs-form">
+            <div class="mb-3">
+                <label for="exampleInputUsername" class="form-label">Name</label>
+                <input type="text" name="name" class="form-controll" placeholder="Enter Name" id="exampleInputUsername" >
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputMobileNumber" class="form-label">Mobile Number</label>
+                <input type="number" name="mobile" class="form-controll" placeholder="Enter Mobile" id="exampleInputMobileNumber" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputMobileNumber" class="form-label">Email</label>
+                <input type="email" name="email" class="form-controll" placeholder="enter email" id="exampleInputEmail" >
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password"  name="password" class="form-controll" placeholder="Enter Password" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Retype Password</label>
+            <input type = "password"  class="form-controll" name = "password_confirmation" placeholder = "password_confirmation"  >
+            </div>
+        </div>
+
+>>>>>>> f1cb974e63bf222da77fa69ad297a0b314db269b
         <div class="groupbuttons ">
             <button type="submit" class="btn text-white redBtn">SIGN IN</button>
             <button type="button" class="btn text-white btn2"><img src="{{asset('assets/website/images/facebook_logo.webp')}}" alt="">Connect with facebook</button>
         </div>
+<<<<<<< HEAD
      </form>
+=======
+        </form>
+
+>>>>>>> f1cb974e63bf222da77fa69ad297a0b314db269b
         <div class="signlinks">
             <p><a href="{{route('login.page')}}">Already an account? Sign in</a></p>
         </div>
