@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @include('dashboard.layout.head')
+    @include('admin.dashboard.layout.head')
 </head>
 
 <body>
@@ -31,13 +31,15 @@
                                     <p class="text-center small">Access Your Control Panel</p>
                                 </div>
 
-                                <form method="post" action="{{url('admin/login')}}" class="row g-3 needs-validation" novalidate>
+                                <form method="post" action="{{url('admin/login')}}" class="row g-3 needs-validation"
+                                      novalidate>
                                     @csrf
                                     <div class="col-12">
                                         <label for="yourUsername" class="form-label">Email</label>
                                         <div class="input-group has-validation">
                                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                            <input type="text" name="email" class="form-control" id="yourUsername" required>
+                                            <input type="text" name="email" class="form-control" id="yourUsername"
+                                                   required>
                                             <div class="invalid-feedback">Please enter your username.</div>
                                             @error('email')
                                             <div class="error">{{ $message }}</div>
@@ -47,7 +49,8 @@
 
                                     <div class="col-12">
                                         <label for="yourPassword" class="form-label">Password</label>
-                                        <input type="password" name="password" class="form-control" id="yourPassword" required>
+                                        <input type="password" name="password" class="form-control" id="yourPassword"
+                                               required>
                                         <div class="invalid-feedback">Please enter your password!</div>
                                         @error('password')
                                         <div class="error">{{ $message }}</div>
@@ -73,9 +76,10 @@
     </div>
 </main><!-- End #main -->
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-@include('dashboard.layout.scripts')
+@include('admin.dashboard.layout.scripts')
 
 </body>
 

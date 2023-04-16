@@ -494,6 +494,7 @@ body::-webkit-scrollbar-thumb {
   height: 30px;
   background: transparent;
   border: none;
+    position: relative;
 }
 .hamburger:hover,
 .hamburger:focus,

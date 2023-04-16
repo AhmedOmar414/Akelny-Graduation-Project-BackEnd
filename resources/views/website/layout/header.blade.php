@@ -6,13 +6,10 @@
                 <div class="logo ">
                     <a href="{{url('')}}"><img src="{{asset('website/images/spoon-and-a-fork-in-a-circle-640w.png')}}" > </a>
                 </div>
-
                 <div class="location d-flex " onclick="toggleMenu() " >
                     <i class="bi bi-geo-alt"></i>
                     <p style="width:115px ; "> <span>Select location </span></br>Jawaddi ludhiana...</p>
                     <i class="bi bi-caret-down-fill "></i>
-
-
                     <div class="sub-menue-wrap " id="subMenu">
                         <div class="back bg-white">
 
@@ -85,11 +82,14 @@
                     <li class="nav-item">
                         <a class="nav-link active "aria-current="page" href="website/ofersPage.html"><button type="button" class="redBtn"><i class="bi bi-vinyl"></i>&nbsp;Offers</button></a>
                     </li>
+                    @if(!Auth::user())
                     <li class="nav-item">
                         <a class="nav-link active "aria-current="page" href="{{url('website/join-us')}}"><i class="bi bi-person "></i> &nbsp;Join Us</a>
                     </li>
+                    @endif
+                    @if(Auth::user())
                     <li class="nav-item nav-item-menu " onclick="togglMnu()">
-                        <a class="nav-link active "  aria-current="page" href="#"> <img src="{{asset('website/images/girl-names-that-start-with-c-zz-221027-768b76.webp')}}" class="nav-item-img" alt=""> &nbsp;Hi  Osahan&nbsp;<i class="bi bi-caret-down-fill "></i></a>
+                        <a class="nav-link active "  aria-current="page" href="#"> <img src="{{asset('website/images/girl-names-that-start-with-c-zz-221027-768b76.webp')}}" class="nav-item-img" alt=""> &nbsp;Hi {{Auth::user()->name}}&nbsp;<i class="bi bi-caret-down-fill "></i></a>
                         <div class="account " id="subMnu">
                             <div class="menue-group  ">
                                 <div  class="sub-account">
@@ -108,11 +108,12 @@
                                     <a href="website/privacyPolicyPage.html">Privacy policy</a>
                                 </div>
                                 <div  class="sub-account">
-                                    <a href="website/signInPage.html">Logout</a>
+                                    <a href="{{route('restaurant.logout')}}">Logout</a>
                                 </div>
                             </div>
                         </div>
                     </li>
+                    @endif
                     <li class="nav-item ">
                         <a class="nav-link active " aria-current="page" href="website/deliveryAddressPage.html"><i class="bi bi-cart2  "></i> &nbsp;Cart</a>
                     </li>

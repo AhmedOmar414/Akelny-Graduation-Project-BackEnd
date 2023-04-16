@@ -6,5 +6,6 @@
 <body>
 @yield('content')
 @include('website.layout.scripts')
+
 </body>
 </html>

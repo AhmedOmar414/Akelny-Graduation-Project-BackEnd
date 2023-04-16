@@ -12,7 +12,7 @@
                     <h5 style="text-align: center;color: #888888">Join us now to start working together<br> successfully and we will provide you with all <br> the means that will help you succeed</h5>
                     <br>
                     <div style="display: flex;justify-content: center;align-items: center">
-                        <a class="btn btn-primary" style="color: white;width: 40%;">Join Now As a Restaurant</a>
+                        <a href="{{route('restaurant-register')}}" class="btn btn-primary" style="color: white;width: 40%;">Join Now As a Restaurant</a>
                     </div>
                 </div>
             </div>

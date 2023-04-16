@@ -1,82 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('website.pages.auth.layout.index')
 
-<head>
-    @include('dashboard.layout.head')
-</head>
-
-<body>
-
-<main>
-    <div class="container">
-
-        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
-                        <div class="d-flex justify-content-center py-4">
-                            <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                <img src="{{asset('assets/logo.png')}}" style="width: 20%; margin: auto;" alt="">
-                            </a>
-                        </div><!-- End Logo -->
-
-
-                        <div class="card mb-3">
-
-                            <div class="card-body">
-
-                                <div class="pt-4 pb-2">
-                                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                                    <p class="text-center small">Access Your Control Panel</p>
-                                </div>
-
-                                <form method="post" action="{{url('admin/login')}}" class="row g-3 needs-validation" novalidate>
-                                    @csrf
-                                    <div class="col-12">
-                                        <label for="yourUsername" class="form-label">Email</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                            <input type="text" name="email" class="form-control" id="yourUsername" required>
-                                            <div class="invalid-feedback">Please enter your username.</div>
-                                            @error('email')
-                                            <div class="error">{{ $message }}</div>
-                                            @enderror
+@section('content')
+    <section class="bg-dark vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class="card card-registration my-4">
+                        <div class="row g-0">
+                            <div class="col-xl-6 d-none d-xl-block">
+                                <img src="{{asset('website/images/register.jpg')}}"
+                                     alt="Sample photo" class="img-fluid"
+                                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card-body p-md-5 text-black">
+                                    <h3 class="mb-5 text-uppercase">Restaurant SignUp</h3>
+                                    <form method="POST"  autocomplete="off" action="{{route('restaurant.register')}}" enctype="multipart/form-data">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        {{ $error }}
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @csrf
+                                        <div class="form-outline mb-4">
+                                            <input type="file" id="form3Example8" class="form-control form-control-lg" name="logo" placeholder="logo"/>
                                         </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="yourPassword" class="form-label">Password</label>
-                                        <input type="password" name="password" class="form-control" id="yourPassword" required>
-                                        <div class="invalid-feedback">Please enter your password!</div>
-                                        @error('password')
-                                        <div class="error">{{ $message }}</div>
+                                        @error('logo')
+                                        <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form3Example8" class="form-control form-control-lg" name="address" placeholder="address"/>
+                                        </div>
+                                        @error('address')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                        <div class="form-outline mb-4">
+                                        <input type="text" id="lat" hidden class="form-control form-control-lg" name="lat" placeholder="lat"/>
+                                    </div>
+                                    @error('lat')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="lng" hidden class="form-control form-control-lg" name="lng" placeholder="lng"/>
+                                        </div>
+                                        @error('lng')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                        <div id="map" style="height:200px; width: 413px;" class="my-3"></div>
+                                        <div class="form-outline mb-4">
+                                            <input type="number" id="form3Example8" class="form-control form-control-lg" name="tax_registration_number" placeholder="tax_registration_number"/>
+                                        </div>
+                                        @error('tax_registration_number')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                         <div class="form-outline mb-4">
+                                            <input type="datetime-local" id="form3Example8" class="form-control form-control-lg" name="open_at" placeholder="open_at"/>
+                                        </div>
+                                        @error('open_at')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror   <div class="form-outline mb-4">
+                                            <input type="datetime-local" id="form3Example8" class="form-control form-control-lg" name="close_at" placeholder="close_at"/>
+                                        </div>
+                                        @error('close_at')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form3Example8" name="name" class="form-control form-control-lg" placeholder="name"/>
+                                        </div>
+                                        @error('name')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                        <div class="form-outline mb-4">
+                                            <input type="tel" id="form3Example8" name="mobile" class="form-control form-control-lg" placeholder="mobile"/>
+                                        </div>
+                                        @error('mobile')
+                                        <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
+                                    <div class="form-outline mb-4">
+                                        <input type="email" autocomplete="off"  id="form3Example8" name="email" class="form-control form-control-lg" placeholder="email"/>
+                                    </div>
+                                    @error('email')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="form3Example8" class="form-control form-control-lg" name="password" placeholder="password"/>
                                     </div>
 
-
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">Login</button>
+                                    @error('confirmation_password')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="form3Example8" class="form-control form-control-lg" name="password_confirmation" placeholder="confirm your password"/>
                                     </div>
-                                </form>
+                                    <div class="d-flex justify-content-end pt-3">
+                                        <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                                        <button type="submit" class="btn btn-success btn-lg ms-2">Submit form</button>
+                                    </div>
 
+                                         </form>
+
+
+                                    <br>
+                                    <a style="text-align: center;margin-left: 90px" href="{{route('restaurant-login')}}">already have an acount </a>
+                                </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-        </section>
-
-    </div>
-</main><!-- End #main -->
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-@include('dashboard.layout.scripts')
-
-</body>
-
-</html>
+        </div>
+    </section>
+@endsection
