@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @include('admin.dashboard.layout.head')
+    @include('restaurant.dashboard.layout.head')
 </head>
 
 <body>
@@ -31,7 +31,7 @@
                                     <p class="text-center small">Access Your Control Panel</p>
                                 </div>
 
-                                <form method="post" action="{{url('admin/login')}}" class="row g-3 needs-validation"
+                                <form method="post" action="{{url('restaurant/login')}}" class="row g-3 needs-validation"
                                       novalidate>
                                     @csrf
                                     <div class="col-12">
@@ -79,7 +79,7 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-@include('admin.dashboard.layout.scripts')
+@include('restaurant.dashboard.layout.scripts')
 
 </body>
 

@@ -30,6 +30,8 @@ class RestaurantRegisterRequest extends FormRequest
             'password' => 'required|confirmed|min:5|max:25',
 
             'logo' => 'image|mimes:jpg,png,jpeg,gif',
+            'restaurant_name' => 'required|string|max:100',
+            'address' => 'required|string|max:100',
             'lat' => 'required',
             'lng' => 'required',
             'tax_registration_number' => 'required|numeric',

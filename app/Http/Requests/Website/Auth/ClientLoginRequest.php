@@ -13,7 +13,7 @@ class ClientLoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class ClientLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'email' => 'required|email',
+            'password' => 'required|min:5|max:25',
         ];
     }
 }

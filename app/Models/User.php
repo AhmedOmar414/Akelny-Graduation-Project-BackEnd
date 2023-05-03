@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
         'mobile',
         'user_type_id',
-
+        'photo',
     ];
 
     protected $hidden = [
@@ -35,8 +35,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function restaurant()
+
+    public function restaurants()
     {
-        return $this->hasOne(Restaurant::class);
+        return $this->hasMany(Restaurant::class,'restaurant_id');
     }
 }

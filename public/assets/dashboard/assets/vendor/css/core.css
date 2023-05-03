@@ -2882,7 +2882,7 @@ textarea.form-control-lg {
   position: absolute;
   z-index: 1000;
   display: none;
-  min-width: 12rem;
+  min-width: 7rem;
   padding: 0.3125rem 0;
   margin: 0;
   font-size: 0.9375rem;
@@ -3868,7 +3868,7 @@ textarea.form-control-lg {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1.5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .card-title {
@@ -4722,7 +4722,7 @@ textarea.form-control-lg {
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 35rem;
+    max-width: 90rem;
     margin: 1.75rem auto;
   }
 
@@ -6614,27 +6614,27 @@ label.btn {
 
 .btn-danger {
   color: #fff;
-  background-color: #ff3e1d;
-  border-color: #ff3e1d;
+  background-color: red;
+  border-color: red;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 62, 29, 0.4);
 }
 .btn-danger:hover {
   color: #fff;
-  background-color: #e6381a;
-  border-color: #e6381a;
+  background-color: red;
+  border-color: red;
   transform: translateY(-1px);
 }
 .btn-check:focus + .btn-danger, .btn-danger:focus, .btn-danger.focus {
   color: #fff;
-  background-color: #e6381a;
-  border-color: #e6381a;
+  background-color: red;
+  border-color: red;
   transform: translateY(0);
   box-shadow: none;
 }
 .btn-check:checked + .btn-danger, .btn-check:active + .btn-danger, .btn-danger:active, .btn-danger.active, .show > .btn-danger.dropdown-toggle {
   color: #fff;
-  background-color: #d93519;
-  border-color: #d93519;
+  background-color: red;
+  border-color: red;
 }
 .btn-check:checked + .btn-danger:focus, .btn-check:active + .btn-danger:focus, .btn-danger:active:focus, .btn-danger.active:focus, .show > .btn-danger.dropdown-toggle:focus {
   box-shadow: none;
@@ -9522,7 +9522,7 @@ button.list-group-item-gray.active {
 }
 
 .my-4 {
-  margin-top: 1.5rem !important;
+  margin-top: 0.5rem !important;
   margin-bottom: 1.5rem !important;
 }
 

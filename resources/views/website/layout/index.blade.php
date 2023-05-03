@@ -750,7 +750,7 @@
             <div class="col-footer">
                 <Div class="content-footer ">
                     <br>
-                    <a href="#">turkey</i></a><br>
+                    <a href="#">turkey</a><br>
                     <a href="#">UAE</a><br>
                     <a href="#">United Kingdom</a><br>
                     <a href="#">United States</a><br>
@@ -761,7 +761,7 @@
             <div class="col-footer">
                 <Div class="content-footer ">
                     <br>
-                    <a href="#">Qatar</i></a><br>
+                    <a href="#">Qatar</a><br>
                     <a href="#">Singapora</a><br>
                     <a href="#">Slovakia</a><br>
                     <a href="#">South Africa</a><br>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Auth\LoginRequest;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function loginPage(){
-        return view('dashboard.pages.login');
+        return view('admin.dashboard.pages.login');
     }
 
     public function login(LoginRequest $request){
@@ -23,6 +23,6 @@ class LoginController extends Controller
     }
     public function logout(){
         Auth::logout();
-        return redirect('admin/login-page');
+        return redirect()->route('/');
     }
 }

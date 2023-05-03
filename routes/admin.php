@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\ClientController;
+use App\Http\Controllers\Admin\Dashboard\RestaurantController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\website\MainController;
@@ -15,16 +17,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//auth
 Route::group(['prefix' => 'admin/','middleware' => 'guest'],function (){
     Route::get('/login-page',[\App\Http\Controllers\Admin\Auth\LoginController::class,'loginPage']);
     Route::post('/login',[\App\Http\Controllers\Admin\Auth\LoginController::class,'login']);
 });
-Route::get('logout',[\App\Http\Controllers\Admin\Auth\LoginController::class,'logout'])->name('admin.logout');
-Route::group(['middleware' => 'admin','prefix' => 'admin/'],function (){
-    Route::get('dashboard',[\App\Http\Controllers\admin\Dashboard\IndexController::class,'index']);
+Route::group(['prefix' => 'admin/'],function () {
+
+    Route::get('logout', [\App\Http\Controllers\Admin\Auth\LoginController::class, 'logout'])->name('admin.logout');
 });
 
-Route::group(['prefix' => 'restaurant/','middleware' => ['guest','rest']],function (){
-    Route::get('dashboard',[\App\Http\Controllers\restaurant\Dashboard\IndexController::class,'index']);
 
+//dashboard
+Route::group(['prefix' => 'admin/','middleware' => 'auth','admin'],function (){
+    Route::get('dashboard',[\App\Http\Controllers\Admin\Dashboard\IndexController::class,'index'])->name('admin.dashboard');
+
+
+    Route::resource('/client', ClientController::class);
+    Route::resource('/restaurant', RestaurantController::class);
 });
+
+

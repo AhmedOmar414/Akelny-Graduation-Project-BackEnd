@@ -3,13 +3,14 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-<title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+<title>Admin | Dashboard </title>
 
 <meta name="description" content="" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="{{asset('assets/dashboard/assets/img/favicon/favicon.ico')}}" />
-
+<!--bootstrap-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

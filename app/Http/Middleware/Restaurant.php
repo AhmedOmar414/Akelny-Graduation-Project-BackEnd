@@ -19,8 +19,7 @@ class Restaurant
                 return $next($request);
             }
         }else{
-            return redirect('admin/login-page');
+            return redirect()->route('restaurant-register');
         }
-
     }
 }

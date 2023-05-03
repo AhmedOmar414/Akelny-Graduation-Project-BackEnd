@@ -25,7 +25,7 @@
                     <h5 style="text-align: center;color: #888888">Join us now and start choosing your <br> favorite meal from a large category of trusted <br> restaurants that we provide for you</h5>
                     <br>
                     <div style="display: flex;justify-content: center;align-items: center">
-                        <a href="{{route('client-login')}}" class="btn btn-success" style="color: white;width: 40%;">Join Now As a Client</a>
+                        <a href="{{route('client-register')}}" class="btn btn-success" style="color: white;width: 40%;">Join Now As a Client</a>
                     </div>
                 </div>
             </div>

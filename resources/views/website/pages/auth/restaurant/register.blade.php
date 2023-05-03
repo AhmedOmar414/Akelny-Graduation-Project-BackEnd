@@ -14,7 +14,7 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="card-body p-md-5 text-black">
-                                    <h3 class="mb-5 text-uppercase">Restaurant SignUp</h3>
+                                    <h3 class="mb-5 text-uppercase">restaurant SignUp</h3>
                                     <form method="POST"  autocomplete="off" action="{{route('restaurant.register')}}" enctype="multipart/form-data">
                                         @if ($errors->any())
                                             <div class="alert alert-danger">
@@ -32,6 +32,12 @@
                                         @error('logo')
                                         <span class="invalid-feedback">{{ $message }}</span>
                                         @enderror
+                                            <div class="form-outline mb-4">
+                                                <input type="text" id="form3Example8" class="form-control form-control-lg" name="restaurant_name" placeholder="restaurant Name"/>
+                                            </div>
+                                            @error('restaurant_name')
+                                            <span class="invalid-feedback">{{ $message }}</span>
+                                            @enderror
                                         <div class="form-outline mb-4">
                                             <input type="text" id="form3Example8" class="form-control form-control-lg" name="address" placeholder="address"/>
                                         </div>
@@ -70,7 +76,7 @@
                                         @enderror
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" id="form3Example8" name="name" class="form-control form-control-lg" placeholder="name"/>
+                                            <input type="text" id="form3Example8" name="name" class="form-control form-control-lg" placeholder="user name"/>
                                         </div>
                                         @error('name')
                                         <span class="invalid-feedback">{{ $message }}</span>
@@ -101,10 +107,7 @@
                                         <button type="button" class="btn btn-light btn-lg">Reset all</button>
                                         <button type="submit" class="btn btn-success btn-lg ms-2">Submit form</button>
                                     </div>
-
                                          </form>
-
-
                                     <br>
                                     <a style="text-align: center;margin-left: 90px" href="{{route('restaurant-login')}}">already have an acount </a>
                                 </div>

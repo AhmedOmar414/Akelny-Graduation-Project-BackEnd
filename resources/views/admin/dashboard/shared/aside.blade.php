@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="{{url('admin/dashboard')}}" class="app-brand-link">
+        <a href="{{url('Admin/dashboard')}}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                     width="25"
@@ -69,12 +69,11 @@
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
         <li class="menu-item active">
-            <a href="{{url('admin/dashboard')}}" class="menu-link">
+            <a href="{{url('Admin/dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-
         <!-- Clients -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -86,18 +85,17 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
+                    <a href="{{ route('client.index') }}" class="menu-link">
                         <div data-i18n="Without menu">list</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
+                    <a href="{{ route('client.create') }}" class="menu-link">
                         <div data-i18n="Without navbar">add</div>
                     </a>
                 </li>
             </ul>
         </li>
-
         <!-- Restaurants -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -109,19 +107,16 @@
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="layouts-without-menu.html" class="menu-link">
+                    <a href="{{ route('restaurant.index') }}" class="menu-link">
                         <div data-i18n="Without menu">list</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="layouts-without-navbar.html" class="menu-link">
+                    <a href="{{ route('restaurant.create') }}" class="menu-link">
                         <div data-i18n="Without navbar">add</div>
                     </a>
                 </li>
             </ul>
         </li>
-
-
-
     </ul>
 </aside>

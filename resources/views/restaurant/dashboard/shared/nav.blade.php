@@ -9,7 +9,7 @@
     </div>
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-        <h4 style="padding-top: 25px">Welcome again Admin </h4><img style="width: 40px;padding-left: 10px" src="{{asset('fes.png')}}">
+        <h4 style="padding-top: 25px">Welcome again Restaurant </h4><img style="width: 40px;padding-left: 10px" src="{{asset('fes.png')}}">
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- Place this tag where you want the button to render. -->
 
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="flex-grow-1">
                                     <span class="fw-semibold d-block">{{auth()->user()->name}}</span>
-                                    <small class="text-muted">Admin</small>
+                                    <small class="text-muted">Restaurant</small>
                                 </div>
                             </div>
                         </a>
@@ -41,9 +41,15 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{route('admin.logout')}}">
+                        <a class="dropdown-item" href="{{route('restaurant.logout')}}">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{route('/')}}">
+
+                            <span class="align-middle">Website</span>
                         </a>
                     </li>
                 </ul>

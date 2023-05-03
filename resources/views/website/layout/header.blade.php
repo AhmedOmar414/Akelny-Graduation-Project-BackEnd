@@ -89,9 +89,22 @@
                     @endif
                     @if(Auth::user())
                     <li class="nav-item nav-item-menu " onclick="togglMnu()">
-                        <a class="nav-link active "  aria-current="page" href="#"> <img src="{{asset('website/images/girl-names-that-start-with-c-zz-221027-768b76.webp')}}" class="nav-item-img" alt=""> &nbsp;Hi {{Auth::user()->name}}&nbsp;<i class="bi bi-caret-down-fill "></i></a>
+                        <a class="nav-link active "  aria-current="page" href="#">
+
+                            <img src="{{asset('website/images/girl-names-that-start-with-c-zz-221027-768b76.webp')}}" class="nav-item-img" alt="">
+                            Hi {{Auth::user()->name}}&nbsp;<i class="bi bi-caret-down-fill "></i>
+                        </a>
                         <div class="account " id="subMnu">
                             <div class="menue-group  ">
+                                @if(Auth::user()->user_type_id ==\App\Models\User::ADMIN)
+                                    <div  class="sub-account">
+                                        <a href="{{route('admin.dashboard')}}">Dashboard</a>
+                                    </div>
+                                @elseif(Auth::user()->user_type_id ==\App\Models\User::RESTAURANT)
+                                    <div  class="sub-account">
+                                        <a href="{{route('restaurant.dashboard')}}">Dashboard</a>
+                                    </div>
+                                @endif
                                 <div  class="sub-account">
                                     <a href="website/myAccount.html">My account</a>
                                 </div>
@@ -108,8 +121,9 @@
                                     <a href="website/privacyPolicyPage.html">Privacy policy</a>
                                 </div>
                                 <div  class="sub-account">
-                                    <a href="{{route('restaurant.logout')}}">Logout</a>
+                                    <a href="{{route('website.logout')}}">Logout</a>
                                 </div>
+
                             </div>
                         </div>
                     </li>
