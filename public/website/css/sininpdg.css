@@ -1,0 +1,123 @@
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+body{
+    width: 100%;
+    height: 745px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: aquamarine;
+}
+.part1{
+    width: 100%;
+    height: 100%;
+}
+.part2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    width: 60%;
+    height: auto;
+    color: rgb(56, 56, 56);
+}
+.head h2{
+    margin-bottom: 4%;
+}
+.head p , .inputs-form label{
+    font-size: 13.5px;
+    margin-bottom: 0%;
+}
+.inputs-form{
+    color: rgb(106, 106, 106);
+    margin-top: 40px;
+}
+.inputs-form .form-controll{
+    border:none;
+    outline: none;
+    border-radius: 0%;
+    padding: 0px;
+    font-size: 14px;
+    border-bottom: 0.5px solid rgb(205, 205, 205);
+    height: 30px;
+    transition: 0.1s ease-in-out;
+}
+.inputs-form .form-controll:hover{
+    border-bottom: 1px solid #000;
+}
+.groupbuttons{
+    margin-top: 30px;
+}
+.groupbuttons .btn{
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+}
+.groupbuttons img{
+    width: 26px; 
+    height: 26px; 
+    margin-top: -5px;
+}
+.groupbuttons .btn2{
+    background: linear-gradient(to right ,#4d4297, rgb(61, 55, 118));
+}
+.groupbuttons .btn2:hover{
+    background: linear-gradient(to right ,#4d4297, rgb(61, 55, 118));
+}
+.signlinks{
+    margin-top: 30px;
+    text-align: center;
+}
+.signlinks a{
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(56, 56, 56);
+}
+.signlinks a:hover{
+    color: rgb(56, 56, 56);
+}
+.part2 .form .body .verify{
+    height: 80px;
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: 7px;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media(max-width: 700px){
+    body{
+        height: 585px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .part1{
+        display: none;
+    }
+    .part2{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form{
+        width: 80%;
+        height: auto;
+    }
+}
