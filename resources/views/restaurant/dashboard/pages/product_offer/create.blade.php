@@ -37,15 +37,19 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-outline mb-4">
-                                        <label for="exampleInputLogo">product Name</label>
-                                        <select  id="status" name="product_id"  class="form-control form-control-lg" onclick="console.log($(this).val())"
-                                                 onchange="console.log('change is firing')" >
-                                            <!--placeholder-->
-                                            <option  selected> Select Product Name</option>
-                                            @foreach($products as $product)
-                                                <option  style="color: black" value={{$product->id}}> {{$product->name}}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="exampleInputLogo">Select Product Name</label>
+
+                                            <ul>
+                                                <li>
+                                                    @foreach($products as $product)
+                                                        <label style="font-size: 16px;">
+                                                            <input type="checkbox" name="product_id[]" value="{{$product->id}}">
+                                                            {{ $product->name }}
+                                                        </label>
+
+                                                    @endforeach
+                                                </li>
+                                            </ul>
                                     </div>
 
                                     <div class="form-outline mb-4">

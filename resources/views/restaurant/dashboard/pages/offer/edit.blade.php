@@ -13,7 +13,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
                                         </li>
-                                        <li class="breadcrumb-item active">Upadate Sub Category
+                                        <li class="breadcrumb-item active">Upadate Offer
                                         </li>
                                     </ol>
                                 </div>
@@ -33,37 +33,46 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{route('sub_category.update',['sub_category' =>$sub_category->id])}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('offer.update',['offer' =>$offer->id])}}" method="POST" enctype="multipart/form-data">
                                 {{ method_field('patch') }}
                                 {{ csrf_field() }}
                                 <div class="card-body">
-
+                                    <div class="m-2 border-light-primary">
+                                    <div class="d-flex px-2 py-1 ">
+                                        <div style="margin-left: 50%;">
+                                            <a href="{{ url('images/offers/'.$offer->photo)}}">
+                                                <img style="height: 80px; width: 80px" src=" {{ url('images/offers/'.$offer->photo)}}" class="avatar avatar-sm me-3 border-radius-lg" alt="offer logo">
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <label for="exampleInputLogo">Sub Category Name</label>
-                                        <input type="text" id="form3Example8" class="form-control form-control-lg" value="{{$sub_category->name}}" name="name" placeholder="Sub Category Name"/>
+                                        <label for="exampleInputLogo">Photo</label>
+                                        <input type="file" id="form3Example8"  value="{{$offer->photo}}" class="form-control form-control-lg" name="photo" placeholder="photo"/>
                                     </div>
-                                    @error('name')
+                                    @error('photo')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
-                                <div class="form-outline mb-4">
-                                    <label for="exampleInputLogo">Category Name</label>
-                                    <select  id="status" name="category_id"  class="form-control form-control-lg" onclick="console.log($(this).val())"
-                                             onchange="console.log('change is firing')" >
-                                        <!--placeholder-->
-                                        <option  style="color: black" disabled selected value={{$sub_category->category->id}}> {{$sub_category->category->name}}</option>
-                                        @foreach($categories as $category)
-                                            @if($category->name != $sub_category->category->name)
-                                            <option  style="color: black" value={{$category->id}}> {{$category->name}}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                </div>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label for="exampleInputLogo">Offer Title</label>
+                                        <input type="text" id="form3Example8" class="form-control form-control-lg" value="{{$offer->title}}" name="title" placeholder="offer title"/>
+                                    </div>
+                                    @error('title')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                    <div class="form-outline mb-4">
+                                        <label for="exampleInputLogo">Offer Description</label>
+                                        <input type="number" id="form3Example8" class="form-control form-control-lg" value="{{$offer->description}}" name="description" placeholder="description"/>
+                                    </div>
+                                    @error('description')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
                                     <div class="card-footer">
                                         <button type="submit" style="background-color: #696cff;color: white"
-                                                class="btn">Upadate Sub Category
+                                                class="btn">Upadate Offer
                                         </button>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>

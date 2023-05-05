@@ -1,125 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>home page</title>
     @include('website.layout.head')
 </head>
 <body>
 
 @include('website.layout.header')
 
-<!------------------------product------------------->
+<!------------------------categories------------------->
 <section class="product" >
 
     <div class="tistemonial ">
 
         <button type="button" class="slider-btn btn1 " onclick="prev()">
-            <i class="bi bi-chevron-left" aria-hidden="true"></i>
-        </button>
+            <i class="bi bi-chevron-left" aria-hidden="true"></i></button>
         <button type="button" class="slider-btn btn2" onclick="next()">
-            <i class="bi bi-chevron-right" aria-hidden="true"></i>
-        </button>
+            <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
 
         <div class="slider-wrap ">
             <div class="slider-main " id="slider-main">
-
-                <div class="item">
-                    <a href="website/trendingPage.html"class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/fries.png')}}" alt="">
-                                <p>Fries</p>
+                @foreach($categories as $category)
+                    <div class="item">
+                        <a href="" class="likPages">
+                            <div class="content-cover">
+                                <div class="content-meals">
+                                    <img src="{{url('images/categories/'.$category->photo)}}" alt="">
+                                    <p>{{$category->name}}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/pizza.png')}}" alt="">
-                                <p>Pizza</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/burger.png')}}" alt="">
-                                <p>Burger</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/sandwitch.png')}}" alt="">
-                                <p>Sandwitch</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/coffee.png')}}" alt="">
-                                <p>Coffee</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/steak.png')}}" alt="">
-                                <p>Steak</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/colacan.png')}}" alt="">
-                                <p>Colacan</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/breakfast.png')}}" alt="">
-                                <p>Breakfast</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <div class="content-cover">
-                            <div class="content-meals">
-                                <img src="{{asset('website/images/salad.png')}}" alt="">
-                                <p>Salad</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
 
         </div>
@@ -134,59 +46,43 @@
     <div class="tistemonial">
 
         <button type="button" class="slider-btn btn1  " onclick="prev1()">
-            <i class="bi bi-chevron-left" aria-hidden="true"></i>
-        </button>
+            <i class="bi bi-chevron-left" aria-hidden="true"></i></button>
         <button type="button" class="slider-btn btn2 " onclick="next1()">
-            <i class="bi bi-chevron-right" aria-hidden="true"></i>
-        </button>
+            <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
 
         <div class="slider-wrap ">
             <div class="slider-main " id="slider-main-offers">
 
                 <div class="item-offers">
-                    <a href="website/trendingPage.html" class="likPages">
+                    <a href="" class="likPages">
+                        <img src="{{asset("website/images/ballons.webp")}}" alt="">
+                        <div class="text-offer">OFFER</div>
+                    </a>
+                </div>
+                <div class="item-offers">
+                    <a href="" class="likPages">
+                        <img src="{{asset("website/images/ballons.webp")}}" alt="">
+                        <div class="text-offer">OFFER</div>
+                    </a>
+                </div>
+                <div class="item-offers">
+                    <a href="" class="likPages">
                         <img src="{{asset("website/images/ballons.webp")}}" alt="">
                         <div class="text-offer">OFFER</div>
                     </a>
                 </div>
 
                 <div class="item-offers">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <img src="{{asset("website/images/spac.jpg")}}" alt="">
-                        <div class="text-offer">DISCOUNT</div>
-                    </a>
-                </div>
-
-                <div class="item-offers">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <img src="{{asset("website/images/skater-dudes.webp")}}" alt="">
-                        <div class="text-offer">TRY&nbsp;NOW</div>
-                    </a>
-                </div>
-
-
-                <div class="item-offers">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <img src="{{asset("website/images/table.jpg")}}" alt="">
-                        <div class="text-offer">EXPLORE</div>
-                    </a>
-                </div>
-
-                <div class="item-offers">
-                    <a href="website/trendingPage.html" class="likPages">
-                        <img src="{{asset("website/images/spac.jpg")}}" alt="">
+                    <a href="" class="likPages">
+                        <img src="{{asset("website/images/ballons.webp")}}" alt="">
                         <div class="text-offer">OFFER</div>
                     </a>
                 </div>
+
             </div>
         </div>
 
     </div>
-
-    </div>
-
-    </div>
-
 </section>
 
 <!------------------------view_All---------------------->
@@ -194,7 +90,7 @@
     <div class="collecter">
         <div class="links">
             <h5>Trending this week</h5>
-            <a href="website/trendingPage.html">View all <i class="bi bi-chevron-double-right"></i></a>
+            <a href="">View all <i class="bi bi-chevron-double-right"></i></a>
         </div>
 
         <div class="tistemonial-Views ">
@@ -203,8 +99,7 @@
                 <i class="bi bi-chevron-left" aria-hidden="true"></i>
             </button>
             <button type="button" class="slider-btn btn2 " onclick="next2()">
-                <i class="bi bi-chevron-right" aria-hidden="true"></i>
-            </button>
+                <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
 
 
             <div class="slider-wrap ">
@@ -212,18 +107,21 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/noodle.webp")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/noodle.webp")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true">
+
+                                    </i>
+                                </button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a class="down-part-a" href="website/menuePage.html">Famous Dave's Bar-B-Que</a>
+                            <a class="down-part-a" href="">Famous Dave's Bar-B-Que</a>
                             <p>Vegetarian <i class="bi bi-circle-fill"></i> Indian <i class="bi bi-circle-fill"></i> Pure veg</p>
                             <div class="time">
                                 <span class="spn-time"><i class="bi bi-clock"></i> 15-30 min</span>
@@ -235,18 +133,18 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">Famous Dave's Bar-B-Que</a>
+                            <a href="">Famous Dave's Bar-B-Que</a>
                             <p>Vegetarian <i class="bi bi-circle-fill"></i> Indian <i class="bi bi-circle-fill"></i> Pure veg</p>
                             <div class="time">
                                 <span class="spn-time"><i class="bi bi-clock"></i> 15-30 min</span>
@@ -258,18 +156,18 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">Famous Dave's Bar-B-Que</a>
+                            <a href="">Famous Dave's Bar-B-Que</a>
                             <p>Vegetarian <i class="bi bi-circle-fill"></i> Indian <i class="bi bi-circle-fill"></i> Pure veg</p>
                             <div class="time">
                                 <span class="spn-time"><i class="bi bi-clock"></i> 15-30 min</span>
@@ -281,18 +179,18 @@
 
                     <div class="item-Views">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">Famous Dave's Bar-B-Que</a>
+                            <a href="">Famous Dave's Bar-B-Que</a>
                             <p>Vegetarian <i class="bi bi-circle-fill"></i> Indian <i class="bi bi-circle-fill"></i> Pure veg</p>
                             <div class="time">
                                 <span class="spn-time"><i class="bi bi-clock"></i> 15-30 min</span>
@@ -309,8 +207,7 @@
 
     </div>
 
-    </div>
-    </div>
+
 </section>
 
 
@@ -322,25 +219,25 @@
             <div class="links">
 
                 <h5>Most popular</h5>
-                <a href="website/mostPopularPage.html">26 places <i class="bi bi-chevron-double-right"></i></a>
+                <a href="">26 places <i class="bi bi-chevron-double-right"></i></a>
             </div>
 
             <div class="row-popular  ">
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/tomato-soup.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/tomato-soup.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">The osahan Restaurant</a>
+                            <a href="">The osahan Restaurant</a>
                             <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                             <div class="time ">
                                 <span class="time-spn"> <i class="bi bi-star"></i> </span>
@@ -357,18 +254,18 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/spaghetti.jpeg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/spaghetti.jpeg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">The osahan Restaurant</a>
+                            <a href="">The osahan Restaurant</a>
                             <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                             <div class="time ">
                                 <span class="time-spn"> <i class="bi bi-star"></i> </span>
@@ -385,11 +282,12 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/French-food.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/French-food.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
+
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
@@ -413,18 +311,18 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/seafood-paella.webp")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/seafood-paella.webp")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">The osahan Restaurant</a>
+                            <a href="">The osahan Restaurant</a>
                             <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                             <div class="time ">
                                 <span class="time-spn"> <i class="bi bi-star"></i> </span>
@@ -441,18 +339,18 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/noodle.webp")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/noodle.webp")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">The osahan Restaurant</a>
+                            <a href="">The osahan Restaurant</a>
                             <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                             <div class="time ">
                                 <span class="time-spn"> <i class="bi bi-star"></i> </span>
@@ -469,18 +367,18 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">The osahan Restaurant</a>
+                            <a href="">The osahan Restaurant</a>
                             <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                             <div class="time ">
                                 <span class="time-spn"> <i class="bi bi-star"></i> </span>
@@ -497,18 +395,18 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">The osahan Restaurant</a>
+                            <a href="">The osahan Restaurant</a>
                             <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                             <div class="time ">
                                 <span class="time-spn"> <i class="bi bi-star"></i> </span>
@@ -525,18 +423,18 @@
                 <div class="col-popular">
                     <div class="card-popular ">
                         <div class="up-part">
-                            <a href="website/menuePage.html"><img src="{{asset("website/images/istock.jpg")}}" alt=""></a>
+                            <a href=""><img src="{{asset("website/images/istock.jpg")}}" alt=""></a>
                             <div class="text-views ">
                                 <p>Promoted</p>
                                 <button type="button" class="views-btn  "  >
-                                    <i class="bi bi-heart" aria-hidden="true"></i>
+                                    <i class="bi bi-heart" aria-hidden="true"></i></button>
                             </div>
                             <div class="rate-views">
                                 <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                             </div>
                         </div>
                         <div class="down-part">
-                            <a href="website/menuePage.html">The osahan Restaurant</a>
+                            <a href="">The osahan Restaurant</a>
                             <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                             <div class="time ">
                                 <span class="time-spn"> <i class="bi bi-star"></i> </span>
@@ -570,18 +468,18 @@
             <div class="card-sales ">
                 <div class="row-sales ">
                     <div class="up-part">
-                        <a href="website/menuePage.html"><img src="{{asset("website/images/istock.jpg")}}" alt=""></a>
+                        <a href=""><img src="{{asset("website/images/istock.jpg")}}" alt=""></a>
                         <div class="text-views ">
                             <p>Promoted</p>
                             <button type="button" class="views-btn  "  >
-                                <i class="bi bi-heart" aria-hidden="true"></i>
+                                <i class="bi bi-heart" aria-hidden="true"></i></button>
                         </div>
                         <div class="rate-views">
                             <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                         </div>
                     </div>
                     <div class="down-part ">
-                        <a href="website/menuePage.html">The osahan Restaurant</a>
+                        <a href="">The osahan Restaurant</a>
                         <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                         <div class="time ">
                             <span class="spn-time"><i class="bi bi-clock"></i> 15-30 min</span>
@@ -595,18 +493,18 @@
             <div class="card-sales ">
                 <div class="row-sales ">
                     <div class="up-part">
-                        <a href="website/menuePage.html"><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
+                        <a href=""><img src="{{asset("website/images/beef.jpg")}}" alt=""></a>
                         <div class="text-views ">
                             <p>Promoted</p>
                             <button type="button" class="views-btn  "  >
-                                <i class="bi bi-heart" aria-hidden="true"></i>
+                                <i class="bi bi-heart" aria-hidden="true"></i></button>
                         </div>
                         <div class="rate-views">
                             <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                         </div>
                     </div>
                     <div class="down-part">
-                        <a href="website/menuePage.html">The osahan Restaurant</a>
+                        <a href="">The osahan Restaurant</a>
                         <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                         <div class="time ">
                             <span class="spn-time"><i class="bi bi-clock"></i> 15-30 min</span>
@@ -620,18 +518,18 @@
             <div class="card-sales ">
                 <div class="row-sales">
                     <div class="up-part">
-                        <a href="website/menuePage.html"><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
+                        <a href=""><img src="{{asset("website/images/salad.jpg")}}" alt=""></a>
                         <div class="text-views ">
                             <p>Promoted</p>
                             <button type="button" class="views-btn  "  >
-                                <i class="bi bi-heart" aria-hidden="true"></i>
+                                <i class="bi bi-heart" aria-hidden="true"></i></button>
                         </div>
                         <div class="rate-views">
                             <i class="bi bi-star"></i> &nbsp;3.1 (300+)
                         </div>
                     </div>
                     <div class="down-part">
-                        <a href="website/menuePage.html">The osahan Restaurant</a>
+                        <a href="">The osahan Restaurant</a>
                         <p> <i class="bi bi-circle-fill"></i> &nbsp; North &nbsp; <i class="bi bi-circle-fill"></i> &nbsp; hamburgers</p>
                         <div class="time ">
                             <span class="spn-time"><i class="bi bi-clock"></i> 15-30 min</span>
@@ -654,7 +552,7 @@
 
             <div class="col-footer" style="grid-column: span 2;">
                 <div style=" width: 65px;">
-                    <img src="{{asset("website/images/spoon-and-a-fork-in-a-circle-640w.png")}}" class="logo bg-white">
+                    <img src="{{asset("website/images/spoon-and-a-fork-in-a-circle-640w.png")}}" class="logo bg-white" alt="">
                 </div>
                 <Div class="content-footer ">
                     <h5>About Us</h5>
@@ -671,39 +569,39 @@
             <div class="col-footer">
                 <Div class="content-footer ">
                     <h5>Error Pages</h5>
-                    <a href="website/notFoundPage.html">Not found</a><br>
-                    <a href="website/MaintencePage.html">Maintence</a><br>
-                    <a href="website/comingSoonPage.html">Coming Soon</a>
+                    <a href="">Not found</a><br>
+                    <a href="">Maintence</a><br>
+                    <a href="">Coming Soon</a>
                 </Div>
             </div>
 
             <div class="col-footer">
                 <Div class="content-footer ">
                     <h5>Services</h5>
-                    <a href="website/deliverySupportPage.html">Delivery Support</a><br>
-                    <a href="website/contactUsPage.html">Contact Us</a><br>
-                    <a href="website/termOfUsePage.html">Terms of use</a><br>
-                    <a href="website/privacyPolicyPage.html">Privace policy</a>
+                    <a href="">Delivery Support</a><br>
+                    <a href="">Contact Us</a><br>
+                    <a href="">Terms of use</a><br>
+                    <a href="">Privace policy</a>
                 </Div>
             </div>
 
             <div class="col-footer">
                 <Div class="content-footer ">
                     <h5>For users</h5>
-                    <a href="website/signInPage.html">User login</a><br>
-                    <a href="website/signUpPage.html">User register</a><br>
-                    <a href="/forgotPasswordPage.html">Forgot Password</a><br>
-                    <a href="website/myAccount.html">Account Setting</a>
+                    <a href="">User login</a><br>
+                    <a href="">User register</a><br>
+                    <a href="">Forgot Password</a><br>
+                    <a href="">Account Setting</a>
                 </Div>
             </div>
 
             <div class="col-footer">
                 <Div class="content-footer ">
                     <h5>More Pages</h5>
-                    <a href="website/trendingPage.html">Trending</a><br>
-                    <a href="website/mostPopularPage.html">Most Popular</a><br>
-                    <a href="website/menuePage.html">Resturant Details</a><br>
-                    <a href="website/favoritePage.html">Favoraits</a>
+                    <a href="">Trending</a><br>
+                    <a href="">Most Popular</a><br>
+                    <a href="">Resturant Details</a><br>
+                    <a href="">Favoraits</a>
                 </Div>
             </div>
         </div>
@@ -770,7 +668,7 @@
             <div class="col-footer">
                 <Div class="content-footer ">
                     <br>
-                    <a href="#">Pakistan</i></a><br>
+                    <a href="#">Pakistan</a><br>
                     <a href="#">Bangladesh</a><br>
                     <a href="#">Bhutaan</a>
                     <a href="#">Nepal</a>
@@ -797,14 +695,14 @@
 
 <section class="simplefooter">
     <div class="right d-flex" >
-        <a href="website/main.html">
+        <a href="">
             <button type="button" class="bg-light">
                 <img src="{{asset("website/images/home-red.png")}}" alt="">
                 <p class="text-danger" style="font-size: 12px;">Home</p>
             </button>
         </a>
 
-        <a href="website/trendingPage.html">
+        <a href="">
             <button type="button">
                 <img src="{{asset("website/images/location.png")}}" alt="">
                 <p>Trending</p>
@@ -813,7 +711,7 @@
     </div>
 
     <div class="middle ">
-        <a href="website/deliveryAddressPage.html">
+        <a href="">
             <button type="button" >
                 <img src="{{asset("website/images/shopping-card.png")}}" style="width: 35px; height: 35px;"  alt="">
             </button>
@@ -821,14 +719,14 @@
     </div>
 
     <div class="left  d-flex">
-        <a href="website/favoritePage.html">
+        <a href="">
             <button type="button" >
                 <img src="{{asset("website/images/heart.png")}}"  alt="">
                 <p>Favorite</p>
             </button>
         </a>
 
-        <a href="website/myAccount.html">
+        <a href="">
             <button type="button" >
                 <img src="{{asset("website/images/person.png")}}" alt="">
                 <p>Profile</p>
@@ -844,7 +742,7 @@
     <div class="popurBody ">
         <div class="links ">
             <h4 >Filter</h4>
-            <div class="text-end"><img src="{{asset("website/images/close.png")}}" onclick="close();" class="close"></div>
+            <div class="text-end"><img src="{{asset("website/images/close.png")}}" onclick="close();" class="close" alt=""></div>
         </div>
         <div class="scrolling-body" >
             <div class="body-sub-menu ">
@@ -909,6 +807,7 @@
 
                 <h6 class="bg-light header">ADDITIONAL FILTERS</h6>
                 <div class="range">
+                    <label for="customRange3"></label>
                     <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
                     <div class="minMax d-flex">
                         <div class="min me-4">
@@ -917,7 +816,9 @@
                         </div>
                         <div class="max">
                             <label class="text-end"> Max</label>
-                            <input class="form-control" type="number"  placeholder="$1,0000">
+                            <label>
+                                <input class="form-control" type="number"  placeholder="$1,0000">
+                            </label>
                         </div>
                     </div>
                 </div>

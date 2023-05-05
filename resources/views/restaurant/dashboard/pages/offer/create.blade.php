@@ -13,7 +13,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
                                         </li>
-                                        <li class="breadcrumb-item active">Upadate Sub Category
+                                        <li class="breadcrumb-item active">Add Offer
                                         </li>
                                     </ol>
                                 </div>
@@ -33,37 +33,37 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{route('sub_category.update',['sub_category' =>$sub_category->id])}}" method="POST" enctype="multipart/form-data">
-                                {{ method_field('patch') }}
-                                {{ csrf_field() }}
+                            <form action="{{route('offer.store')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="card-body">
 
-                                    </div>
                                     <div class="form-outline mb-4">
-                                        <label for="exampleInputLogo">Sub Category Name</label>
-                                        <input type="text" id="form3Example8" class="form-control form-control-lg" value="{{$sub_category->name}}" name="name" placeholder="Sub Category Name"/>
+                                        <label for="exampleInputLogo">Photo</label>
+                                        <input type="file" id="form3Example8" class="form-control form-control-lg" name="photo" placeholder="logo"/>
                                     </div>
-                                    @error('name')
+                                    @error('Photo')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                     @enderror
-                                <div class="form-outline mb-4">
-                                    <label for="exampleInputLogo">Category Name</label>
-                                    <select  id="status" name="category_id"  class="form-control form-control-lg" onclick="console.log($(this).val())"
-                                             onchange="console.log('change is firing')" >
-                                        <!--placeholder-->
-                                        <option  style="color: black" disabled selected value={{$sub_category->category->id}}> {{$sub_category->category->name}}</option>
-                                        @foreach($categories as $category)
-                                            @if($category->name != $sub_category->category->name)
-                                            <option  style="color: black" value={{$category->id}}> {{$category->name}}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <label for="exampleInputLogo">Offer Title</label>
+                                        <input type="text" id="form3Example8" class="form-control form-control-lg" name="title" placeholder="title"/>
+                                    </div>
+                                    @error('title')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
+                                    <div class="form-outline mb-4">
+                                        <label for="exampleInputLogo">Offer description</label>
+                                        <textarea type="text" id="form3Example8" class="form-control form-control-lg" name="description" placeholder="description"></textarea>
+                                    </div>
+                                    @error('description')
+                                    <span class="invalid-feedback">{{ $message }}</span>
+                                    @enderror
                                     <div class="card-footer">
                                         <button type="submit" style="background-color: #696cff;color: white"
-                                                class="btn">Upadate Sub Category
+                                                class="btn">Add Offer
                                         </button>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>

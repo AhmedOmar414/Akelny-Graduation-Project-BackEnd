@@ -26,7 +26,6 @@ class ProductController extends Controller
 //            $products = $products->merge($subcategory->products);
 //        }
         $products = DB::table('categories')
-
             ->join('subcategories', 'categories.id', '=', 'subcategories.category_id')
             ->join('products', 'subcategories.id', '=', 'products.sub_category_id')
             ->select('products.*')
@@ -38,7 +37,6 @@ class ProductController extends Controller
     public function create()
     {
         $restaurant_id=Restaurant::where('user_id',Auth::user()->id)->first();
-
         $sub_categories = DB::table('categories')->where('restaurant_id',$restaurant_id)
             ->join('subcategories', 'categories.id', '=', 'subcategories.category_id')
             ->join('products', 'subcategories.id', '=', 'products.sub_category_id')

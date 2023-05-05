@@ -28,16 +28,21 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
+
             $table->unsignedBigInteger('status_id');
-            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
+            $table->foreign('status_id')->references('id')->on('order_statuses')->onDelete('cascade');
+
             $table->unsignedBigInteger('coupon_id');
             $table->foreign('coupon_id')->references('id')->on('vouchers')->onDelete('cascade');
+
             $table->unsignedBigInteger('payment_type_id');
             $table->foreign('payment_type_id')->references('id')->on('payment_types')->onDelete('cascade');
+
             $table->unsignedBigInteger('website_percentage');
-            $table->foreign('website_percentage')->references('id')->on('vouchers')->onDelete('cascade');
+            $table->foreign('website_percentage')->references('id')->on('website_percentages')->onDelete('cascade');
 
             $table->timestamps();
         });

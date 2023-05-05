@@ -13,9 +13,6 @@ class SubCategoryController extends Controller
 {
     public function index()
     {
-//         $restaurant=Restaurant::where('user_id',Auth::user()->id)->first();
-//        $categories=$restaurant->categories->first();
-//        $sub_categories=$categories->sub_categories;
         $restaurant=Restaurant::where('user_id',Auth::user()->id)->first();
         $categories=$restaurant->categories;
         return view('restaurant.dashboard.pages.sub_category.index',compact("categories"));
@@ -52,9 +49,7 @@ class SubCategoryController extends Controller
     public function edit($id)
     {
         $sub_category= Subcategory::findOrFail($id);
-
         $restaurant=Restaurant::where('user_id',Auth::user()->id)->first();
-
         $categories=$restaurant->categories;
         return view('restaurant.dashboard.pages.sub_category.edit',compact('sub_category','categories'));
 

@@ -16,6 +16,7 @@ class ProductGalleryController extends Controller
     {
 
         $restaurantId=Auth::user()->id;
+
         $product_gallery= ProductGallery::whereHas('product.sub_category.category.restaurant',
             function ($query) use ($restaurantId) {
                 $query->where('user_id', $restaurantId);
