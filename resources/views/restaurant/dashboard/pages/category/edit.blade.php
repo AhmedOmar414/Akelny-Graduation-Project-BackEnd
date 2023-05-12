@@ -11,7 +11,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Upadate Category
                                         </li>
@@ -40,14 +40,16 @@
                                     <div class="m-2 border-light-primary">
                                     <div class="d-flex px-2 py-1 ">
                                         <div style="margin-left: 50%;">
+
                                             <a href="{{ url('images/categories/'.$category->photo)}}">
                                                 <img style="height: 80px; width: 80px" src=" {{ url('images/categories/'.$category->photo)}}" class="avatar avatar-sm me-3 border-radius-lg" alt="category logo">
                                             </a>
+
                                         </div>
                                     </div>
                                     <div class="form-outline mb-4">
                                         <label for="exampleInputLogo">Photo</label>
-                                        <input type="file" id="form3Example8"  value="{{$category->photo}}" class="form-control form-control-lg" name="photo" placeholder="photo"/>
+                                        <input type="file" id="image"  value="{{$category->photo}}" class="form-control form-control-lg" name="photo" placeholder="photo"/>
                                     </div>
                                     @error('photo')
                                     <span class="invalid-feedback">{{ $message }}</span>
@@ -95,5 +97,22 @@
     </div>
 @endsection
 @section('js')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#image-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image").change(function() {
+            readURL(this);
+        });
+    </script>
 
 @endsection

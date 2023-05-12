@@ -16,16 +16,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-//        $restaurant=Restaurant::where('user_id',Auth::user()->id)->first();
-//        category=$restaurant->categories->sub_categories->products;
-//
-//        $category = Category::find($categoryId);
-//        $products = collect();
-//
-//        foreach ($category->subcategories as $subcategory) {
-//            $products = $products->merge($subcategory->products);
-//        }
-        $products = DB::table('categories')
+        $restaurant=Restaurant::where('user_id',Auth::user()->id)->first();
+        $products = DB::table('categories')->where('restaurant_id',$restaurant->id)
             ->join('subcategories', 'categories.id', '=', 'subcategories.category_id')
             ->join('products', 'subcategories.id', '=', 'products.sub_category_id')
             ->select('products.*')
@@ -36,17 +28,11 @@ class ProductController extends Controller
 
     public function create()
     {
-        $restaurant_id=Restaurant::where('user_id',Auth::user()->id)->first();
-        $sub_categories = DB::table('categories')->where('restaurant_id',$restaurant_id)
-            ->join('subcategories', 'categories.id', '=', 'subcategories.category_id')
-            ->join('products', 'subcategories.id', '=', 'products.sub_category_id')
-            ->select('subcategories.*')
-            ->get();
-
-        return view('restaurant.dashboard.pages.product.create',compact('sub_categories'));
+        $restaurant=Restaurant::where('user_id',Auth::user()->id)->first();
+        $categories=Category::where('restaurant_id',$restaurant->id)->get();
+        return view('restaurant.dashboard.pages.product.create',compact('categories'));
 
     }
-
 
     public function store(Request $request)
     {
@@ -135,7 +121,11 @@ class ProductController extends Controller
         Storage::delete($product->photo);
         $product->delete();
 
-
         return redirect()->back()->with(['success' =>'Product deleted successfully']);
+    }
+
+    public function getProducts($id){
+        $subcategories = Subcategory::where('category_id', $id)->get();
+        return response()->json($subcategories);
     }
 }

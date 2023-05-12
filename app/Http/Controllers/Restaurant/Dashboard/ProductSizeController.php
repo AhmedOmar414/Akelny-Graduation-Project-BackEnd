@@ -13,26 +13,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductSizeController extends Controller
 {
+
+    public function add($id){
+        $product=$id;
+        return view('restaurant.dashboard.pages.product_size.create',compact('product'));
+    }
     public function index()
     {
-        $restaurantId=Auth::user()->id;
-        $product_size= ProductSize::whereHas('product.sub_category.category.restaurant',
-            function ($query) use ($restaurantId) {
-                $query->where('user_id', $restaurantId);
-            })->get();
-        return view('restaurant.dashboard.pages.product_size.index',compact("product_size"));
+
 
     }
 
     public function create()
     {
-
-        $restaurantId=Auth::user()->id;
-        $products= Product::whereHas('sub_category.category.restaurant',
-            function ($query) use ($restaurantId) {
-                $query->where('user_id', $restaurantId);
-            })->get();
-        return view('restaurant.dashboard.pages.product_size.create',compact('products'));
 
     }
 
@@ -40,7 +33,7 @@ class ProductSizeController extends Controller
     public function store(Request $request)
     {
         $data= $request->validate([
-            'size' => 'required|numeric',
+            'size' => 'required|string',
             'price' => 'required|numeric|min:0.01',
             'product_id' => 'required',
         ]);
@@ -48,12 +41,16 @@ class ProductSizeController extends Controller
         if(!$product_size->save()){
             return redirect()->back()->with('message', 'There was a problem with add restaurant.');
         } else {
-            return redirect()->route('product_size.index')->with('success', 'Size Created Successfully!');
+            $product=$request->product_id;
+            return redirect()->route('product_size.show', [ $product, 'product' => compact('product')])->with('success', 'Size Created Successfully!');
         }
     }
 
     public function show($id)
     {
+        $product_size=ProductSize::where('product_id',$id)->get();
+        $product=Product::where('id',$id)->first();
+        return view('restaurant.dashboard.pages.product_size.index',compact('product_size','product'));
 
     }
 
@@ -61,14 +58,7 @@ class ProductSizeController extends Controller
     public function edit($id)
     {
         $product_size=ProductSize::find($id);
-
-        $restaurantId=Auth::user()->id;
-        $products= Product::whereHas('sub_category.category.restaurant',
-            function ($query) use ($restaurantId) {
-                $query->where('user_id', $restaurantId);
-            })->get();
-
-        return view('restaurant.dashboard.pages.product_size.edit',compact('product_size','products'));
+        return view('restaurant.dashboard.pages.product_size.edit',compact('product_size'));
 
     }
 
@@ -76,9 +66,8 @@ class ProductSizeController extends Controller
     public function update(Request $request, $id)
     {
         $data =$request->validate([
-            'size' => 'required|numeric',
+            'size' => 'required|string',
             'price' => 'required|numeric|min:0.01',
-            'product_id' => 'required',
         ]);
         $product_size = ProductSize::findOrFail($id);
         $product_size->update($data);
@@ -86,7 +75,9 @@ class ProductSizeController extends Controller
         if(!$product_size->update($data)){
             return redirect()->back()->with('message', 'There was a problem with add restaurant.');
         } else {
-            return redirect()->route('product_size.index')->with('success', 'Size Updates Successfully!');
+            $product=$product_size->product_id;
+            return redirect()->route('product_size.show', [ $product, 'product' => compact('product')])->with('success', 'Size Updates Successfully!');
+
         }
     }
 

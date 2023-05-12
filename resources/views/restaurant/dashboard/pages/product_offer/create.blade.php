@@ -11,7 +11,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Add Offer
                                         </li>
@@ -36,22 +36,7 @@
                             <form action="{{route('product_offer.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
-                                    <div class="form-outline mb-4">
-                                        <label for="exampleInputLogo">Select Product Name</label>
-
-                                            <ul>
-                                                <li>
-                                                    @foreach($products as $product)
-                                                        <label style="font-size: 16px;">
-                                                            <input type="checkbox" name="product_id[]" value="{{$product->id}}">
-                                                            {{ $product->name }}
-                                                        </label>
-
-                                                    @endforeach
-                                                </li>
-                                            </ul>
-                                    </div>
-
+                                    <input hidden name="product_id" value="{{$product}}">
                                     <div class="form-outline mb-4">
                                         <label for="exampleInputLogo">Offer Name</label>
                                         <input type="text" id="form3Example8" class="form-control form-control-lg" name="name" placeholder="product offer Name"/>

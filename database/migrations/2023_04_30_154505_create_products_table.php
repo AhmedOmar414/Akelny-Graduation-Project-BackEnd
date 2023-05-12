@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('quantity');
             $table->double('price');
             $table->tinyInteger('status')->default(true);
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('sub_category_id');
             $table->foreign('sub_category_id')->references('id')->on('subcategories')->onDelete('cascade');
             $table->timestamps();

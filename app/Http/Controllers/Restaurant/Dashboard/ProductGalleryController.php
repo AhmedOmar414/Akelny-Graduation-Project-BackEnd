@@ -15,24 +15,10 @@ class ProductGalleryController extends Controller
     public function index()
     {
 
-        $restaurantId=Auth::user()->id;
-
-        $product_gallery= ProductGallery::whereHas('product.sub_category.category.restaurant',
-            function ($query) use ($restaurantId) {
-                $query->where('user_id', $restaurantId);
-            })->get();
-        return view('restaurant.dashboard.pages.product_gallery.index',compact('product_gallery'));
-
     }
 
     public function create()
     {
-        $restaurantId=Auth::user()->id;
-        $products= Product::whereHas('sub_category.category.restaurant',
-            function ($query) use ($restaurantId) {
-                $query->where('user_id', $restaurantId);
-            })->get();
-        return view('restaurant.dashboard.pages.product_gallery.create',compact('products'));
 
     }
     public function store(Request $request)
@@ -48,13 +34,18 @@ class ProductGalleryController extends Controller
             $data['photo']  = $image;
         }
         ProductGallery::create($data);
-        return redirect()->back()->with('success','Images Added Successfully');
+        $product=$request->product_id;
+        return redirect()->route('product_gallery.show', [ $product, 'product' => compact('product')])->with('success','Images Added Successfully');
+
     }
 
 
     public function show($id)
     {
-        //
+        $product_gallery=ProductGallery::where('product_id',$id)->get();
+        $product=$id;
+        return view('restaurant.dashboard.pages.product_gallery.index',compact('product_gallery','product'));
+
     }
 
     public function edit($id)

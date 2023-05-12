@@ -27,7 +27,19 @@ class ReviewController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'stars' =>'required|max:5',
+            'review' =>'required|string',
+        ]);
+        $review=new Review();
+        $review->user_id=Auth::user()->id;
+        $restaurant=Restaurant::where('user_id',Auth::user()->id)->first();
+        $review->restaurant_id=$restaurant->id;
+        $review->stars=$request->stars;
+        $review->review=$request->review;
+        $review->save();
+            return redirect()->back()->with('success', 'Review Created Successfully!');
+
     }
 
     public function show($id)

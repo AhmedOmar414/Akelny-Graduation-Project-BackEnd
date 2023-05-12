@@ -10,7 +10,9 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
+                                        </li>
+                                        <li class="breadcrumb-item"><a href="{{route('product.index')}}"> products</a>
                                         </li>
                                         <li class="breadcrumb-item active">Products Offers
                                         </li>
@@ -20,8 +22,13 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="card-footer">
+                    <a href="{{route('add.product_offer',$product)}}" type="submit" style="float: right"
+                       class="btn btn-outline-info">add new offer
+                    </a>
+                </div>
                 <div class="card-body px-0 pb-2">
-                    <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                             <thead>
                             <tr>
@@ -30,9 +37,7 @@
                                 <th class="text-uppercase text-bg-primary text-xxs font-weight-bolder opacity-7" style="color: #696cff">Percentage</th>
                                 <th class="text-uppercase text-bg-primary text-xxs font-weight-bolder opacity-7" style="color: #696cff">Start At</th>
                                 <th class="text-uppercase text-bg-primary text-xxs font-weight-bolder opacity-7" style="color: #696cff">End At</th>
-                                <th class="text-uppercase text-bg-primary text-xxs font-weight-bolder opacity-7" style="color: #696cff">Product id</th>
                                 <th class="text-bg-primary opacity-7" style="color: #696cff">actions</th>
-
                             </tr>
                             </thead>
                             <tbody>
@@ -72,13 +77,6 @@
                                         <h6 class="mb-0 text-sm">{{$offer->end_at}}</h6>
                                     </div>
                                 </td>
-                                <td class="align-middle">
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{$offer->products?->id}}</h6>
-                                    </div>
-                                </td>
-
-
                                 <td class="align-middle">
                                     <div class="dropdown show">
                                         <a style="background-color: #696cff; color: white" class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -122,7 +120,6 @@
                             </div>
                         </div>
 
-                    </div>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Add Size
                                         </li>
@@ -36,21 +36,10 @@
                             <form action="{{route('product_size.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
-                                    <div class="form-outline mb-4">
-                                        <label for="exampleInputLogo">product Name</label>
-                                        <select  id="status" name="product_id"  class="form-control form-control-lg" onclick="console.log($(this).val())"
-                                                 onchange="console.log('change is firing')" >
-                                            <!--placeholder-->
-                                            <option  selected> Select Product Name</option>
-                                            @foreach($products as $product)
-                                                <option  style="color: black" value={{$product->id}}> {{$product->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
+                                    <input hidden name="product_id" value="{{$product}}">
                                     <div class="form-outline mb-4">
                                         <label for="exampleInputLogo">Size</label>
-                                        <input type="number" id="form3Example8" class="form-control form-control-lg" name="size" placeholder="product size"/>
+                                        <input type="text" id="form3Example8" class="form-control form-control-lg" name="size" placeholder="product size"/>
                                     </div>
                                     @error('size')
                                     <span class="invalid-feedback">{{ $message }}</span>

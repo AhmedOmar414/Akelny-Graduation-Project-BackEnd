@@ -10,7 +10,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Offers
                                         </li>
@@ -46,25 +46,12 @@
                                             <a href=" {{ asset('images/offers/'.$offer->photo)}}" >
                                                 <img style="height: 80px; width: 80px" src=" {{ url('images/offers/'.$offer->photo)}}" class="avatar avatar-sm me-3 border-radius-lg rounded-circle" alt="Client photo">
                                             </a>                                        </div>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h4 class="mb-0 text-sm">{{$offer->name}}</h4>
-                                            @if($offer->status==1)
-                                            <p class="text-xs text-success mb-0">Found</p>
-                                            @else
-                                            <p class="text-xs text-danger mb-0">Not Found</p>
-                                            @endif
-                                        </div>
                                     </div>
                                 </td>
 
                                 <td class="align-middle">
                                     <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{$offer->price}}</h6>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{$offer->quantity}}</h6>
+                                        <h6 class="mb-0 text-sm">{{$offer->title}}</h6>
                                     </div>
                                 </td>
                                 <td class="align-middle">
@@ -73,21 +60,13 @@
                                     </div>
                                 </td>
                                 <td class="align-middle">
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">{{$sub_category->name}}</h6>
-                                    </div>
-                                </td>
-
-
-                                <td class="align-middle">
                                     <div class="dropdown show">
                                         <a style="background-color: #696cff; color: white" class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Actions
                                         </a>
-
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" href="{{route('offer.edit',['offer' =>$offer->id])}}">edit</a>
-                                            <a  href="#delete"  data-toggle="modal" class="dropdown-item btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" data-id="{{$offer->id}}" data-name="{{$offer->name}}">Delete</a>
+                                            <a  href="#delete"  data-toggle="modal" class="dropdown-item btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" data-id="{{$offer->id}}" data-title="{{$offer->title}}">Delete</a>
                                         </div>
                                     </div>
                                 </td>
@@ -100,14 +79,14 @@
                             <div class="modal" id="delete">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 30rem;">
                                     <div class="modal-content modal-content-demo">
-                                        <form action="category/destroy" method="post">
+                                        <form action="offer/destroy" method="post">
                                             {{ method_field('delete') }}
                                             {{ csrf_field() }}
                                             <div class="modal-body">
-                                                <p style="font-size: 25px;text-align: center; color: red">are sure of the deleting category</p><br>
+                                                <p style="font-size: 25px;text-align: center; color: red">are sure of the deleting offer</p><br>
                                                 <input type="hidden" name="id" id="id" >
                                                <p style="font-size: 35px;text-align: center;">
-                                                   <input  style=" border: none;background-color: white; color: #696cff"   id="name" type="text" disabled>
+                                                   <input  style=" border: none;background-color: white; color: #696cff"   id="title" type="text" disabled>
                                                </p>
 
                                                 <br>
@@ -145,10 +124,10 @@
         $('#delete').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
-            var name = button.data('name')
+            var title = button.data('title')
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
-            modal.find('.modal-body #name').val(name);
+            modal.find('.modal-body #title').val(title);
         })
     </script>
 @endsection

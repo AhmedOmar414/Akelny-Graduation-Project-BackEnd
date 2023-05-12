@@ -8,9 +8,9 @@ use App\Http\Controllers\Restaurant\Dashboard\ProductController;
 use App\Http\Controllers\Restaurant\Dashboard\ProductGalleryController;
 use App\Http\Controllers\Restaurant\Dashboard\ProductOfferController;
 use App\Http\Controllers\Restaurant\Dashboard\ProductSizeController;
+use App\Http\Controllers\Restaurant\Dashboard\ProfileController;
 use App\Http\Controllers\Restaurant\Dashboard\RestaurantGalleryController;
 use App\Http\Controllers\Restaurant\Dashboard\ReviewController;
-use App\Http\Controllers\Restaurant\Dashboard\Sub_CategoryController;
 use App\Http\Controllers\Restaurant\Dashboard\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +29,7 @@ Route::get('logout',[\App\Http\Controllers\Restaurant\Auth\LoginController::clas
 Route::group(['prefix' => 'restaurant/','middleware' => 'rest'],function (){
     Route::get('dashboard',[\App\Http\Controllers\Restaurant\Dashboard\IndexController::class,'index'])->name('restaurant.dashboard');
 
+    Route::resource('/profile', ProfileController::class);
     Route::resource('/restaurant_gallery', RestaurantGalleryController::class);
 
     Route::resource('/category', CategoryController::class);
@@ -42,7 +43,10 @@ Route::group(['prefix' => 'restaurant/','middleware' => 'rest'],function (){
     Route::resource('/order', OrderController::class);
     Route::resource('/review', ReviewController::class);
     Route::resource('/offer', OfferController::class);
-
-
-
 });
+//ajax
+Route::get('/get-subcategories/{id}',[ProductController::class,'getProducts']);
+
+Route::get('create/product_offer/{id}',[ProductOfferController::class,'add'])->name('add.product_offer');
+Route::get('create/product_size/{id}',[ProductSizeController::class,'add'])->name('add.product_size');
+

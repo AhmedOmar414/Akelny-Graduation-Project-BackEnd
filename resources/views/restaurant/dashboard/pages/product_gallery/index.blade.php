@@ -9,7 +9,9 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
+                                        </li>
+                                        <li class="breadcrumb-item"><a href="{{route('product.index')}}"> products</a>
                                         </li>
                                         <li class="breadcrumb-item active">Product Gallery
                                         </li>
@@ -21,6 +23,43 @@
                 </div>
 
                 <div class="card-body px-0 pb-2">
+                    <div class="card-body px-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <div class="container w-50">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" style=" margin-right: 22px;  margin-left: 22px;">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                <form action="{{route('product_gallery.store')}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="input-group" style="align-items: center" >
+                                                <img style="margin-left: 40%" id="image-preview" src="#" alt="No Image" >
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-outline mb-4">
+                                                    <label for="exampleInputLogo">Photo</label>
+                                                    <input type="file" id="image" class="form-control form-control-lg" name="photo" placeholder="photo"/>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" style="background-color: #696cff;color: white"
+                                                        class="btn">upload
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="card-header" style="background-color:#696cff;padding:0.5rem 0.5rem">
                         <h4 class="card-title" style="color: white">Gallery</h4>
                     </div>
@@ -36,8 +75,6 @@
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-min-width box-shadow-3 mr-1 mb-1 btn-sm">delete</button>
                                     </form>
-
-
                                 </div>
                             @endforeach
 
@@ -47,4 +84,24 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#image-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image").change(function() {
+            readURL(this);
+        });
+    </script>
+
 @endsection

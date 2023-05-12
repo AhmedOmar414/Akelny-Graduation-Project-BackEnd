@@ -5,7 +5,8 @@
 
 <script src="{{asset('assets/dashboard/assets/vendor/js/menu.js')}}"></script>
 <!-- endbuild -->
-
+<!--ajax-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Vendors JS -->
 <script src="{{asset('assets/dashboard/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
 
@@ -51,7 +52,7 @@
             })
     }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" type="text/javascript"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmLXxdC27YMzr-MS8x2MgrVSr5qb0sRC4&callback=initMap" type="text/javascript"></script>
 
 <!--sweet alerts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

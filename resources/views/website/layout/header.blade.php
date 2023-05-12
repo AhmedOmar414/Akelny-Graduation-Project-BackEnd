@@ -1,98 +1,70 @@
 <section class="nav">
     <nav class="navbar navbar-expand-lg" >
         <div class="collecter ">
-            <div class="container p-0 ">
+            <div class="container p-0" style="    margin-left: 55px;">
 
                 <div class="logo ">
                     <a href="{{url('')}}"><img src="{{asset('website/images/spoon-and-a-fork-in-a-circle-640w.png')}}" > </a>
                 </div>
-                <div class="location d-flex " onclick="toggleMenu() " >
-                    <i class="bi bi-geo-alt"></i>
-                    <p style="width:115px ; "> <span>Select location </span></br>Jawaddi ludhiana...</p>
-                    <i class="bi bi-caret-down-fill "></i>
-                    <div class="sub-menue-wrap " id="subMenu">
-                        <div class="back bg-white">
-
-                            <div class="sub-menue ">
-                                <div class="input-group ">
-                                    <button class="btn" type="button" ><i class="bi bi-search"></i></button>
-                                    <input type="text" class="form-control " placeholder="Enter Your Location" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                </div>
-                            </div>
-
-                            <div class="body-sub-menu">
-
-                                <a href="#" class="link-location">
-                                    <div>
-                                        <i class="bi bi-send"></i> &nbsp;New York, USA
-                                    </div>
-                                </a>
-
-                                <h6 class="bg-light header">Choose your country</h6>
-
-                                <li class="list-item">
-                                    <div>
-                                        <label class="form-check-label" for="secondRadio">Afghanistan</label>
-                                        <input class="form-check-input me-1 " type="radio" name="listGroupRadio" value="" id="secondRadio">
-                                    </div>
-                                </li>
-                                <li class="list-item">
-                                    <div>
-                                        <label class="form-check-label" for="secondRadio">India</label>
-                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                                    </div>
-                                </li>
-                                <li class="list-item">
-                                    <div>
-                                        <label class="form-check-label" for="secondRadio">USA</label>
-                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                                    </div>
-                                </li>
-                                <li class="list-item">
-                                    <div>
-                                        <label class="form-check-label" for="secondRadio">Australia</label>
-                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                                    </div>
-                                </li>
-                                <li class="list-item">
-                                    <div>
-                                        <label class="form-check-label" for="secondRadio">Japan</label>
-                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                                    </div>
-                                </li>
-                                <li class="list-item">
-                                    <div>
-                                        <label class="form-check-label" for="secondRadio">China</label>
-                                        <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                                    </div>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
 
             </div>
 
-            <div class="container p-0" id="navbarSupportedContent">
+            <div class="container p-0"  style=" max-width: 660px; min-width: 550px" id="navbarSupportedContent">
                 <ul class="navbar-nav ">
                     <li class="nav-item ">
                         <a class="nav-link active "aria-current="page" href="website/searchPage.html"><i class="bi bi-search bii "></i> &nbsp;Search</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active "aria-current="page" href="website/ofersPage.html"><button type="button" class="redBtn"><i class="bi bi-vinyl"></i>&nbsp;Offers</button></a>
+                    <li class="nav-item ">
+                        <a class="nav-link active "  aria-current="page" href="{{route('all.restaurants')}}"><button type="button" class="navBtn" style=" background: white; border: none;"><i style="color: red" class="bi bi-cup-straw "></i>AllRestaurants</button></a>
                     </li>
-                    @if(!Auth::user())
+                    @if(Auth::user())
                     <li class="nav-item">
-                        <a class="nav-link active "aria-current="page" href="{{url('website/join-us')}}"><i class="bi bi-person "></i> &nbsp;Join Us</a>
+                        @if(\App\Models\Offer::all()->count()>0)
+                        <a class="nav-link active " aria-current="page" href="{{route('offer.page')}}"><button type="button" class="navBtn" style=" background: white; border: none;"><i style="color: red" class="bi bi-vinyl "></i>&nbsp;Offers</button></a>
+                        @else
+                            <a class="nav-link active " aria-current="page" href="{{route('offer.page')}}"><button type="button" class="navBtn" style=" background: white; border: none;"><i style="color: gray" class="bi bi-vinyl "></i>&nbsp;Offers</button></a>
+                            @endif
                     </li>
                     @endif
+
+                    @if(!Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="{{url('website/join-us')}}"><i class="bi bi-person "></i> &nbsp;Join Us</a>
+                    </li>
+                        <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="{{url('website/client-login')}}"><i class="bi bi-person "></i> &nbsp;Login</a>
+                    </li>
+
+                    @endif
+                    <li class="nav-item ">
+                        <a class="nav-link active " aria-current="page" href="website/deliveryAddressPage.html"><i class="bi bi-cart2  "></i> &nbsp;Cart</a>
+                    </li>
+                    <li class="nav-item ">
+                        @if(\App\Models\FavoriteProduct::where('user_id',\Illuminate\Support\Facades\Auth::id())->count()>0)
+                            <a class="nav-link active " aria-current="page" href="{{route('favorite.products')}}"><button type="button" class="navBtn" style=" background: white; border: none;"><i style="color: red" class="bi bi-heart-fill  "></i> Products</button></a>
+                        @else
+                            <a class="nav-link active " aria-current="page" href="{{route('favorite.products')}}"><button type="button" class="navBtn" style=" background: white; border: none;"><i style="color: gray" class="bi bi-heart-fill  "></i>  Products</button></a>
+                        @endif
+                    </li>
+                    <li class="nav-item ">
+                        @if(\App\Models\Favorite::where('user_id',\Illuminate\Support\Facades\Auth::id())->count()>0)
+                            <a class="nav-link active " aria-current="page" href="{{route('favorite.restaurants')}}"><button type="button" class="navBtn" style=" background: white; border: none;"><i style="color: red" class="bi bi-heart-fill  "></i>Restaurant</button></a>
+
+                        @else
+                            <a class="nav-link active " aria-current="page" href="{{route('favorite.restaurants')}}"><button type="button" class="navBtn" style=" background: white; border: none;"><i style="color: gray" class="bi bi-heart-fill  "></i>Restaurant</button></a>
+                        @endif
+
+                    </li>
                     @if(Auth::user())
                     <li class="nav-item nav-item-menu " onclick="togglMnu()">
                         <a class="nav-link active "  aria-current="page" href="#">
-
-                            <img src="{{asset('website/images/girl-names-that-start-with-c-zz-221027-768b76.webp')}}" class="nav-item-img" alt="">
-                            Hi {{Auth::user()->name}}&nbsp;<i class="bi bi-caret-down-fill "></i>
+                         @if(Auth::user()->photo)
+                            <img src="{{url('images/users/'.Auth::user()->photo)}}" class="nav-item-img" alt="">
+                                {{Auth::user()->name}}&nbsp;<i class="bi bi-caret-down-fill "></i>
+                            @else
+                                <img src="{{asset('website/images/girl-names-that-start-with-c-zz-221027-768b76.webp')}}" class="nav-item-img" alt="">
+                       HI
+                            @endif
                         </a>
                         <div class="account " id="subMnu">
                             <div class="menue-group  ">
@@ -106,19 +78,10 @@
                                     </div>
                                 @endif
                                 <div  class="sub-account">
-                                    <a href="website/myAccount.html">My account</a>
+                                    <a href="{{route('user_profile.index')}}">My profile</a>
                                 </div>
                                 <div  class="sub-account">
-                                    <a href="website/deliverySupportPage.html">Delivery support</a>
-                                </div>
-                                <div  class="sub-account">
-                                    <a href="website/contactUsPage.html">Contact us</a>
-                                </div>
-                                <div  class="sub-account">
-                                    <a href="website/termOfUsePage.html">Term of user</a>
-                                </div>
-                                <div  class="sub-account">
-                                    <a href="website/privacyPolicyPage.html">Privacy policy</a>
+                                    <a href="{{route('contact_us')}}">Contact us</a>
                                 </div>
                                 <div  class="sub-account">
                                     <a href="{{route('website.logout')}}">Logout</a>
@@ -128,18 +91,7 @@
                         </div>
                     </li>
                     @endif
-                    <li class="nav-item ">
-                        <a class="nav-link active " aria-current="page" href="website/deliveryAddressPage.html"><i class="bi bi-cart2  "></i> &nbsp;Cart</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link active  d-flex justify-content-center align-content-center" aria-current="page" href="#">
-                            <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
-                                <span class="hamb-top"></span>
-                                <span class="hamb-middle"></span>
-                                <span class="hamb-bottom"></span>
-                            </button>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -249,4 +201,94 @@
             </div>
         </div>
     </nav>
+</div>
+<div class="popupFilter">
+    <div class="popurBody ">
+        <div class="links ">
+            <h4 >Filter</h4>
+            <div class="text-end">  <img src="{{asset('images/close.png')}}" onclick="close();" class="close"></div>
+        </div>
+        <div class="scrolling-body" >
+            <div class="body-sub-menu ">
+
+                <h6 class="bg-light header">SORT BY</h6>
+
+                <li class="form-check">
+                    <div>
+                        <label class="form-check-label" for="flexRadioDefault1">Top Rated</label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    </div>
+                </li>
+                <li class="list-unstyled">
+                    <div>
+                        <label class="form-check-label" for="flexRadioDefault2">Nearest Me</label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    </div>
+                </li>
+                <li class="list-unstyled">
+                    <div>
+                        <label class="form-check-label" for="flexRadioDefault3">Cost High To Low</label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                    </div>
+                </li>
+                <li class=" list-unstyled">
+                    <div>
+                        <label class="form-check-label" for="flexRadioDefault4">Cost Low To High</label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                    </div>
+                </li>
+                <li class=" list-unstyled">
+                    <div>
+                        <label class="form-check-label" for="flexRadioDefault5">Most Popular</label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                    </div>
+                </li>
+            </div>
+            <div class="body-sub-menu ">
+
+                <h6 class="bg-light header">FILTER</h6>
+
+                <li class="form-check">
+                    <div>
+                        <label class="form-check-label" for="flexCheckIndeterminate1">Open Now</label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate1">
+                    </div>
+                </li>
+                <li class="list-item list-unstyled">
+                    <div>
+                        <label class="form-check-label" for="flexCheckIndeterminate2">Credit Cards</label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate2">
+                    </div>
+                </li>
+                <li class="list-item list-unstyled">
+                    <div>
+                        <label class="form-check-label" for="flexCheckIndeterminate3">Alcohol Served</label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate3">
+                    </div>
+                </li>
+            </div>
+            <div class="body-sub-menu ">
+
+                <h6 class="bg-light header">ADDITIONAL FILTERS</h6>
+                <div class="range">
+                    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                    <div class="minMax d-flex">
+                        <div class="min me-4">
+                            <label > Min</label>
+                            <input type="number"  class="form-control" placeholder="$0">
+                        </div>
+                        <div class="max">
+                            <label class="text-end"> Max</label>
+                            <input class="form-control" type="number"  placeholder="$1,0000">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup-footer fixed-bottom w-100">
+            <button type="button" onclick="btnClose();" >Close</button>
+            <button type="button" class="btn-danger" >Save Changes</button>
+        </div>
+    </div>
 </div>

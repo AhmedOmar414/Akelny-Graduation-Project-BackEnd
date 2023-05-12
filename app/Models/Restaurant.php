@@ -32,4 +32,5 @@ class Restaurant extends Model
         return $this->hasMany(Offer::class,'restaurant_id');
     }
 
+
 }

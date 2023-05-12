@@ -11,7 +11,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Upadate Offer
                                         </li>
@@ -62,7 +62,9 @@
                                     @enderror
                                     <div class="form-outline mb-4">
                                         <label for="exampleInputLogo">Offer Description</label>
-                                        <input type="number" id="form3Example8" class="form-control form-control-lg" value="{{$offer->description}}" name="description" placeholder="description"/>
+                                        <textarea type="text" id="form3Example8" class="form-control form-control-lg"  name="description" placeholder="description">
+                                            {{$offer->description}}
+                                        </textarea>
                                     </div>
                                     @error('description')
                                     <span class="invalid-feedback">{{ $message }}</span>
