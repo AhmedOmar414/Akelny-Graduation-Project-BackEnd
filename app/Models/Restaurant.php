@@ -22,5 +22,15 @@ class Restaurant extends Model
     public function restaurant_gallery(){
         return $this->hasMany(RestaurantGallery::class,'restaurant_id');
     }
+    public function orders(){
+        return $this->hasMany(Order::class,'restaurant_id');
+    }
+    public function reviews(){
+        return $this->hasMany(Review::class,'restaurant_id');
+    }
+    public function offers(){
+        return $this->hasMany(Offer::class,'restaurant_id');
+    }
+
 
 }

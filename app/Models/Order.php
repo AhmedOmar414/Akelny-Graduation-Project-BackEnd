@@ -9,6 +9,10 @@ class Order extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 
 //    public function sub_categories(){
 //        return $this->belongsTo(Subcategory::class,'sub_category_id');

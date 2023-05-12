@@ -10,7 +10,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Products
                                         </li>
@@ -21,7 +21,6 @@
                     </div>
                 </div>
                 <div class="card-body px-0 pb-2">
-                    <div class="table-responsive p-0">
                         @if($products->count()>0)
                         <table class="table align-items-center mb-0">
                             <thead>
@@ -91,6 +90,9 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" href="{{route('product_gallery.show',$product->id)}}">photos</a>
+                                            <a class="dropdown-item btn btn-outline-success btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" href="{{route('product_size.show',$product->id)}}">size</a>
+                                            <a class="dropdown-item btn btn-outline-secondary btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" href="{{route('product_offer.show',$product->id)}}">offer</a>
                                             <a class="dropdown-item btn btn-outline-info btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" href="{{route('product.edit',['product' =>$product->id])}}">edit</a>
                                             <a  href="#delete"  data-toggle="modal" class="dropdown-item btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1 btn-sm" data-id="{{$product->id}}" data-name="{{$product->name}}">Delete</a>
                                         </div>
@@ -105,14 +107,14 @@
                             <div class="modal" id="delete">
                                 <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 30rem;">
                                     <div class="modal-content modal-content-demo">
-                                        <form action="category/destroy" method="post">
+                                        <form action="product/destroy" method="post">
                                             {{ method_field('delete') }}
                                             {{ csrf_field() }}
                                             <div class="modal-body">
-                                                <p style="font-size: 25px;text-align: center; color: red">are sure of the deleting category</p><br>
+                                                <p style="font-size: 25px;text-align: center; color: red">are sure of the deleting product</p><br>
                                                 <input type="hidden" name="id" id="id" >
                                                <p style="font-size: 35px;text-align: center;">
-                                                   <input  style=" border: none;background-color: white; color: #696cff"   id="name" type="text" disabled>
+                                                   <input  style=" border: none;background-color: white; color: #696cff"   id="name" name="name" type="text" disabled>
                                                </p>
 
                                                 <br>
@@ -143,7 +145,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection
 @section('js')
     <script>

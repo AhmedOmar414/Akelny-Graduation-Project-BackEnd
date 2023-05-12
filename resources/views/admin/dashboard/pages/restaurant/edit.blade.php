@@ -11,7 +11,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Upadate Restaurant
                                         </li>

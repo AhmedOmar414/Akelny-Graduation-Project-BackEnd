@@ -11,7 +11,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Add Restaurant
                                         </li>
@@ -79,10 +79,12 @@
                                             <option  style="color: black" value={{\App\Models\Restaurant::CLOSE}}> Close</option>
                                         </select>
                                     </div>
-
+                                    <div class="input-group" style="align-items: center" >
+                                        <img style="margin-left: 40%" id="image-preview" src="#" alt="No Image" >
+                                    </div>
                                     <div class="form-outline mb-4">
                                         <label for="exampleInputLogo">Logo</label>
-                                        <input type="file" id="form3Example8" class="form-control form-control-lg" name="logo" placeholder="logo"/>
+                                        <input type="file" id="image" class="form-control form-control-lg" name="logo" placeholder="logo"/>
                                     </div>
                                     @error('logo')
                                     <span class="invalid-feedback">{{ $message }}</span>
@@ -153,5 +155,22 @@
     </div>
 @endsection
 @section('js')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#image-preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#image").change(function() {
+            readURL(this);
+        });
+    </script>
 
 @endsection

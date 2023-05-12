@@ -11,7 +11,7 @@
                             <div class="row breadcrumbs-top">
                                 <div class="breadcrumb-wrapper col-12">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="{{route('/')}}"> dashboard</a>
+                                        <li class="breadcrumb-item"><a href="{{route('restaurant.dashboard')}}"> dashboard</a>
                                         </li>
                                         <li class="breadcrumb-item active">Upadate Sub Category
                                         </li>
@@ -51,9 +51,11 @@
                                     <select  id="status" name="category_id"  class="form-control form-control-lg" onclick="console.log($(this).val())"
                                              onchange="console.log('change is firing')" >
                                         <!--placeholder-->
-                                        <option  style="color: black" disabled selected value={{$sub_category->categories?->id}}> {{$sub_category->categories?->name}}</option>
+                                        <option  style="color: black" disabled selected value={{$sub_category->category->id}}> {{$sub_category->category->name}}</option>
                                         @foreach($categories as $category)
+                                            @if($category->name != $sub_category->category->name)
                                             <option  style="color: black" value={{$category->id}}> {{$category->name}}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
