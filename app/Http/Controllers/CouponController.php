@@ -6,14 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 class CouponController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $coupon=Coupon::orderBy('id','DESC')->paginate('10');
+        if (auth()->user()->role == 'res'){
+            $coupon=Coupon::where('res_id',auth()->user()->id)->orderBy('id','DESC')->paginate('10');
+        }
         return view('backend.coupon.index')->with('coupons',$coupon);
     }
 
@@ -22,6 +20,7 @@ class CouponController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('backend.coupon.create');
@@ -43,6 +42,11 @@ class CouponController extends Controller
             'status'=>'required|in:active,inactive'
         ]);
         $data=$request->all();
+
+        if (auth()->user()->role == 'res'){
+            $data['res_id'] = auth()->user()->id;
+        }
+
         $status=Coupon::create($data);
         if($status){
             request()->session()->flash('success','Coupon Successfully added');
@@ -97,7 +101,9 @@ class CouponController extends Controller
             'status'=>'required|in:active,inactive'
         ]);
         $data=$request->all();
-        
+        if (auth()->user()->role == 'res'){
+            $data['res_id'] = auth()->user()->id;
+        }
         $status=$coupon->fill($data)->save();
         if($status){
             request()->session()->flash('success','Coupon Successfully updated');
@@ -106,7 +112,7 @@ class CouponController extends Controller
             request()->session()->flash('error','Please try again!!');
         }
         return redirect()->route('coupon.index');
-        
+
     }
 
     /**

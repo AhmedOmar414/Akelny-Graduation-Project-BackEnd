@@ -19,6 +19,9 @@ class ProductController extends Controller
     public function index()
     {
         $products=Product::getAllProduct();
+        if (auth()->user()->role == 'res'){
+            $products=Product::where('res_id',auth()->user()->id)->paginate(10);
+        }
         // return $products;
         return view('backend.product.index')->with('products',$products);
     }
@@ -30,10 +33,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brand=Brand::get();
         $category=Category::where('is_parent',1)->get();
         // return $category;
-        return view('backend.product.create')->with('categories',$category)->with('brands',$brand);
+        return view('backend.product.create')->with('categories',$category);
     }
 
     /**
@@ -64,6 +66,9 @@ class ProductController extends Controller
 
         $data=$request->all();
         $slug=Str::slug($request->title);
+        if (auth()->user()->role == 'res'){
+            $data['res_id'] = auth()->user()->id;
+        }
         $count=Product::where('slug',$slug)->count();
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
@@ -86,7 +91,12 @@ class ProductController extends Controller
         else{
             request()->session()->flash('error','Please try again!!');
         }
-        return redirect()->route('product.index');
+
+        if (auth()->user()->role == 'res'){
+            return redirect()->route('category.index');
+        }else{
+            return redirect()->route('product.index');
+        }
 
     }
 
@@ -148,6 +158,9 @@ class ProductController extends Controller
 
         $data=$request->all();
         $data['is_featured']=$request->input('is_featured',0);
+        if (auth()->user()->role == 'res'){
+            $data['res_id'] = auth()->user()->id;
+        }
         $size=$request->input('size');
         if($size){
             $data['size']=implode(',',$size);
@@ -163,7 +176,7 @@ class ProductController extends Controller
         else{
             request()->session()->flash('error','Please try again!!');
         }
-        return redirect()->route('product.index');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -176,13 +189,22 @@ class ProductController extends Controller
     {
         $product=Product::findOrFail($id);
         $status=$product->delete();
-        
+
         if($status){
             request()->session()->flash('success','Product successfully deleted');
         }
         else{
             request()->session()->flash('error','Error while deleting product');
         }
-        return redirect()->route('product.index');
+        return redirect()->route('category.index');
+    }
+
+    public function restaurants(){
+        $res = \App\User::where('role','res')->get();
+        return view('backend.product.restaurants',compact('res'));
+    }
+    public function restaurantProducts($id){
+        $products=Product::where('res_id',$id)->paginate(10);
+        return view('backend.product.index')->with('products',$products);
     }
 }

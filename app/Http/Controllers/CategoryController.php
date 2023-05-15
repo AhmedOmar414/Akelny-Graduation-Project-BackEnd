@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -20,6 +21,12 @@ class CategoryController extends Controller
         return view('backend.category.index')->with('categories',$category);
     }
 
+
+    public function categoryProducts($id){
+        $products=Product::where('cat_id',$id)->where('res_id',auth()->user()->id)->paginate(10);
+        // return $products;
+        return view('backend.category.product.index')->with('products',$products);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -56,7 +63,7 @@ class CategoryController extends Controller
         }
         $data['slug']=$slug;
         $data['is_parent']=$request->input('is_parent',0);
-        // return $data;   
+        // return $data;
         $status=Category::create($data);
         if($status){
             request()->session()->flash('success','Category successfully added');
@@ -137,7 +144,7 @@ class CategoryController extends Controller
         $child_cat_id=Category::where('parent_id',$id)->pluck('id');
         // return $child_cat_id;
         $status=$category->delete();
-        
+
         if($status){
             if(count($child_cat_id)>0){
                 Category::shiftChild($child_cat_id);

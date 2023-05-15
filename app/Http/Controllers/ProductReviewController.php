@@ -18,7 +18,10 @@ class ProductReviewController extends Controller
     public function index()
     {
         $reviews=ProductReview::getAllReview();
-        
+        if (auth()->user()->role == 'res'){
+            $reviews=ProductReview::where('res_id',auth()->user()->id)->paginate(10);
+        }
+
         return view('backend.review.index')->with('reviews',$reviews);
     }
 
@@ -29,7 +32,7 @@ class ProductReviewController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**

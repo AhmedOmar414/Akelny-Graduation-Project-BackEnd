@@ -10,7 +10,10 @@
      </div>
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary float-left">Product Lists</h6>
-      <a href="{{route('product.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
+        @if(auth()->user()->role == 'res')
+            <a href="{{route('product.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
+        @else
+        @endif
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -26,7 +29,6 @@
               <th>Discount</th>
               <th>Size</th>
               <th>Condition</th>
-              <th>Brand</th>
               <th>Stock</th>
               <th>Photo</th>
               <th>Status</th>
@@ -43,7 +45,6 @@
               <th>Discount</th>
               <th>Size</th>
               <th>Condition</th>
-              <th>Brand</th>
               <th>Stock</th>
               <th>Photo</th>
               <th>Status</th>
@@ -56,7 +57,6 @@
               @php
               $sub_cat_info=DB::table('categories')->select('title')->where('id',$product->child_cat_id)->get();
               // dd($sub_cat_info);
-              $brands=DB::table('brands')->select('title')->where('id',$product->brand_id)->get();
               @endphp
                 <tr>
                     <td>{{$product->id}}</td>
@@ -71,7 +71,6 @@
                     <td>  {{$product->discount}}% OFF</td>
                     <td>{{$product->size}}</td>
                     <td>{{$product->condition}}</td>
-                    <td> {{ucfirst($product->brand->title)}}</td>
                     <td>
                       @if($product->stock>0)
                       <span class="badge badge-primary">{{$product->stock}}</span>
@@ -98,12 +97,16 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" action="{{route('product.destroy',[$product->id])}}">
-                      @csrf
-                      @method('delete')
-                          <button class="btn btn-danger btn-sm dltBtn" data-id={{$product->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
-                        </form>
+                        @if(auth()->user()->role == 'res')
+                            <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                            <form method="POST" action="{{route('product.destroy',[$product->id])}}">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm dltBtn" data-id={{$product->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        @else
+                        @endif
+
                     </td>
                 </tr>
             @endforeach

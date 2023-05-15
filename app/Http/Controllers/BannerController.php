@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\User;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 use Illuminate\Support\Str;
 class BannerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $banner=Banner::orderBy('id','DESC')->paginate(10);
+        if (auth()->user()->role == 'res'){
+            $banner=Banner::where('user_id',auth()->user()->id)->orderBy('id','DESC')->paginate(10);
+        }
         return view('backend.banner.index')->with('banners',$banner);
     }
 
@@ -44,6 +44,10 @@ class BannerController extends Controller
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();
+        if (auth()->user()->role == 'res'){
+            $data['user_id']=auth()->user()->id;
+        }
+
         $slug=Str::slug($request->title);
         $count=Banner::where('slug',$slug)->count();
         if($count>0){
@@ -101,6 +105,9 @@ class BannerController extends Controller
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();
+        if (auth()->user()->role == 'res'){
+            $data['user_id']=auth()->user()->id;
+        }
         // $slug=Str::slug($request->title);
         // $count=Banner::where('slug',$slug)->count();
         // if($count>0){
@@ -135,5 +142,13 @@ class BannerController extends Controller
             request()->session()->flash('error','Error occurred while deleting banner');
         }
         return redirect()->route('banner.index');
+    }
+    public function bannerRestaurants(){
+        $res = \App\User::where('role','res')->get();
+        return view('backend.banner.restaurants',compact('res'));
+    }
+    public function restaurantBanners($id){
+        $banner=Banner::where('user_id',$id)->orderBy('id','DESC')->paginate(10);
+        return view('backend.banner.index')->with('banners',$banner);
     }
 }

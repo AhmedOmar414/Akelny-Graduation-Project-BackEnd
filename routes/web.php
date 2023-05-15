@@ -22,8 +22,8 @@ Route::get('user/logout','FrontendController@logout')->name('user.logout');
 Route::get('user/register','FrontendController@register')->name('register.form');
 Route::post('user/register','FrontendController@registerSubmit')->name('register.submit');
 // Reset password
-Route::post('password-reset', 'FrontendController@showResetForm')->name('password.reset'); 
-// Socialite 
+Route::post('password-reset', 'FrontendController@showResetForm')->name('password.reset');
+// Socialite
 Route::get('login/{provider}/', 'Auth\LoginController@redirect')->name('login.redirect');
 Route::get('login/{provider}/callback/', 'Auth\LoginController@Callback')->name('login.callback');
 
@@ -78,9 +78,10 @@ Route::post('/subscribe','FrontendController@subscribe')->name('subscribe');
 
 // Product Review
 Route::resource('/review','ProductReviewController');
+Route::resource('/res_review','RestaurantsReviews');
 Route::post('product/{slug}/review','ProductReviewController@store')->name('review.store');
 
-// Post Comment 
+// Post Comment
 Route::post('post/{slug}/comment','PostCommentController@store')->name('post-comment.store');
 Route::resource('/comment','PostCommentController');
 // Coupon
@@ -101,8 +102,14 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     })->name('file-manager');
     // user route
     Route::resource('users','UsersController');
+    Route::resource('restaurants','RestaurantsController');
+
     // Banner
     Route::resource('banner','BannerController');
+    Route::get('/banners-restaurants','BannerController@bannerRestaurants')->name('res-banners');
+    Route::get('/restaurant-banners/{id}','BannerController@restaurantBanners')->name('res-bannerss');
+
+
     // Brand
     Route::resource('brand','BrandController');
     // Profile
@@ -110,8 +117,12 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('/profile/{id}','AdminController@profileUpdate')->name('profile-update');
     // Category
     Route::resource('/category','CategoryController');
+    Route::get('/category-products/{id}','CategoryController@categoryProducts')->name('category-products');
+
     // Product
     Route::resource('/product','ProductController');
+    Route::get('/product-restaurants','ProductController@restaurants')->name('res-products');
+    Route::get('/restaurant-product/{id}','ProductController@restaurantProducts')->name('res-productss');
     // Ajax for sub category
     Route::post('/category/{id}/child','CategoryController@getChildByParent');
     // POST category
@@ -126,6 +137,8 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
 
     // Order
     Route::resource('/order','OrderController');
+    Route::get('/order-restaurants','OrderController@restaurants')->name('res-orders');
+    Route::get('/restaurant-orders/{id}','OrderController@restaurantOrders')->name('res-orderss');
     // Shipping
     Route::resource('/shipping','ShippingController');
     // Coupon
@@ -143,12 +156,13 @@ Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::post('change-password', 'AdminController@changPasswordStore')->name('change.password');
 });
 
+//res register
+Route::get('restaurant/login',[\App\Http\Controllers\Restaurant\Auth\LoginController::class,'login'])->name('res.login.form');
+Route::post('restaurant/login',[\App\Http\Controllers\Restaurant\Auth\LoginController::class,'loginSubmit'])->name('res.login.submit');
+Route::get('restaurant/logout',[\App\Http\Controllers\Restaurant\Auth\LoginController::class,'logout'])->name('res.logout');
 
-
-
-
-
-
+Route::get('restaurant/register',[\App\Http\Controllers\Restaurant\Auth\RegisterController::class,'register'])->name('res.register.form');
+Route::post('restaurant/register',[\App\Http\Controllers\Restaurant\Auth\RegisterController::class,'registerStore'])->name('res.register.submit');
 
 
 
@@ -167,13 +181,13 @@ Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
     Route::delete('/user-review/delete/{id}','HomeController@productReviewDelete')->name('user.productreview.delete');
     Route::get('/user-review/edit/{id}','HomeController@productReviewEdit')->name('user.productreview.edit');
     Route::patch('/user-review/update/{id}','HomeController@productReviewUpdate')->name('user.productreview.update');
-    
+
     // Post comment
     Route::get('user-post/comment','HomeController@userComment')->name('user.post-comment.index');
     Route::delete('user-post/comment/delete/{id}','HomeController@userCommentDelete')->name('user.post-comment.delete');
     Route::get('user-post/comment/edit/{id}','HomeController@userCommentEdit')->name('user.post-comment.edit');
     Route::patch('user-post/comment/udpate/{id}','HomeController@userCommentUpdate')->name('user.post-comment.update');
-    
+
     // Password Change
     Route::get('change-password', 'HomeController@changePassword')->name('user.change.password.form');
     Route::post('change-password', 'HomeController@changPasswordStore')->name('change.password');

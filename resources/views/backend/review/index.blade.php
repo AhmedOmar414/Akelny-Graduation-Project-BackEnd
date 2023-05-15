@@ -20,6 +20,7 @@
               <th>S.N.</th>
               <th>Review By</th>
               <th>Product Title</th>
+              <th>Res Name</th>
               <th>Review</th>
               <th>Rate</th>
               <th>Date</th>
@@ -32,7 +33,8 @@
               <th>S.N.</th>
               <th>Review By</th>
               <th>Product Title</th>
-              <th>Review</th>
+                <th>Res Name</th>
+                <th>Review</th>
               <th>Rate</th>
               <th>Date</th>
               <th>Status</th>
@@ -41,10 +43,14 @@
           </tfoot>
           <tbody>
             @foreach($reviews as $review)
+                @php
+                    $res = \App\User::find($review->res_id);
+                @endphp
                 <tr>
                     <td>{{$review->id}}</td>
                     <td>{{$review->user_info['name']}}</td>
                     <td>{{$review->product->title}}</td>
+                    <td>{{$res->name ?? ''}}</td>
                     <td>{{$review->review}}</td>
                     <td>
                      <ul style="list-style:none">

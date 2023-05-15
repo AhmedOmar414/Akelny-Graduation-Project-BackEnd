@@ -16,6 +16,9 @@ class ShippingController extends Controller
     public function index()
     {
         $shipping=Shipping::orderBy('id','DESC')->paginate(10);
+        if (auth()->user()->role == 'res'){
+            $shipping=Shipping::where('res_id',auth()->user()->id)->paginate(10);
+        }
         return view('backend.shipping.index')->with('shippings',$shipping);
     }
 
@@ -43,6 +46,9 @@ class ShippingController extends Controller
             'status'=>'required|in:active,inactive'
         ]);
         $data=$request->all();
+        if (auth()->user()->role == 'res'){
+            $data['res_id'] = auth()->user()->id;
+        }
         // return $data;
         $status=Shipping::create($data);
         if($status){
@@ -96,6 +102,9 @@ class ShippingController extends Controller
             'status'=>'required|in:active,inactive'
         ]);
         $data=$request->all();
+        if (auth()->user()->role == 'res'){
+            $data['res_id'] = auth()->user()->id;
+        }
         // return $data;
         $status=$shipping->fill($data)->save();
         if($status){

@@ -34,10 +34,9 @@
 
         <div class="form-group">
           <label for="is_featured">Is Featured</label><br>
-          <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> Yes                        
+          <input type="checkbox" name='is_featured' id='is_featured' value='1' checked> Yes
         </div>
               {{-- {{$categories}} --}}
-
         <div class="form-group">
           <label for="cat_id">Category <span class="text-danger">*</span></label>
           <select name="cat_id" id="cat_id" class="form-control">
@@ -85,18 +84,6 @@
         </div>
 
         <div class="form-group">
-          <label for="brand_id">Brand</label>
-          {{-- {{$brands}} --}}
-
-          <select name="brand_id" class="form-control">
-              <option value="">--Select Brand--</option>
-             @foreach($brands as $brand)
-              <option value="{{$brand->id}}">{{$brand->title}}</option>
-             @endforeach
-          </select>
-        </div>
-
-        <div class="form-group">
           <label for="condition">Condition</label>
           <select name="condition" class="form-control">
               <option value="">--Select Condition--</option>
@@ -128,7 +115,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        
+
         <div class="form-group">
           <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">

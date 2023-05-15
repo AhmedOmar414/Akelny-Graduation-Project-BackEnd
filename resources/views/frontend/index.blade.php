@@ -1,71 +1,102 @@
 @extends('frontend.layouts.master')
 @section('title','E-SHOP || HOME PAGE')
 @section('main-content')
-<!-- Slider Area -->
-@if(count($banners)>0)
-    <section id="Gslider" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            @foreach($banners as $key=>$banner)
-        <li data-target="#Gslider" data-slide-to="{{$key}}" class="{{(($key==0)? 'active' : '')}}"></li>
-            @endforeach
+    <style>
+        .product{
+            width: 100%;
+            height: 250px;
+            background-color: rgb(243, 243, 243);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+    </style>
 
-        </ol>
-        <div class="carousel-inner" role="listbox">
-                @foreach($banners as $key=>$banner)
-                <div class="carousel-item {{(($key==0)? 'active' : '')}}">
-                    <img class="first-slide" src="{{$banner->photo}}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block text-left">
-                        <h1 class="wow fadeInDown">{{$banner->title}}</h1>
-                        <p>{!! html_entity_decode($banner->description) !!}</p>
-                        <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
+
+    <!-- Start Most Popular -->
+    <section class="product" >
+        <div class="product-area most-popular">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title" style="margin-top: 20px">
+                            <h2>Categories</h2>
+                        </div>
                     </div>
                 </div>
-            @endforeach
+                <div class="row">
+                    <div class="col-12">
+                        <div class="owl-carousel popular-slider">
+                                <!-- Start Single Product -->
+                             @foreach($category_lists as $category)
+                                <div class="single-product" style="padding-bottom: 40px">
+                                    <div style="background-color:#ffffff;height: 80px;width: 190px;border-radius: 7px;padding-top: 10px;margin-left: 7px;margin-top: 10px">
+                                        <div style="display: flex;align-items: center;justify-content: center">
+                                            <img src="{{asset($category->photo)}}" style="width: 40px">
+                                        </div>
+                                        <p style="text-align: center">{{$category->title}}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a class="carousel-control-prev" href="#Gslider" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#Gslider" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-        </a>
     </section>
-@endif
 
-<!--/ End Slider Area -->
+    <!-- End Most Popular Area -->
 
 <!-- Start Small Banner  -->
-<section class="small-banner section">
+
     <div class="container-fluid">
-        <div class="row">
-            @php
-            $category_lists=DB::table('categories')->where('status','active')->limit(3)->get();
-            @endphp
-            @if($category_lists)
-                @foreach($category_lists as $cat)
-                    @if($cat->is_parent==1)
-                        <!-- Single Banner  -->
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="single-banner">
-                                @if($cat->photo)
-                                    <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
-                                @else
-                                    <img src="https://via.placeholder.com/600x370" alt="#">
-                                @endif
-                                <div class="content">
-                                    <h3>{{$cat->title}}</h3>
-                                        <a href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
+        <section>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title" style="margin-top: 20px">
+                        <h2>Offers</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-5">
+                <div class="row">
+                    @foreach($banners as $banner)
+
+                        @php
+                          $res = \App\User::find($banner->user_id);
+                        @endphp
+                        <div class="col-md-12 col-lg-4 mb-4 mb-lg-0" >
+                            <div class="card" style="height: 550px">
+                                <div class="d-flex justify-content-between p-3">
+                                    <p class="lead mb-0">{{$banner->title}}</p>
+
+                                </div>
+                                <img src="{{$banner->photo}}"
+                                     class="card-img-top" alt="Laptop" style="height: 400px" />
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="small"><a href="#!" class="text-muted">{{$res->name}}</a></p>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h5 class="mb-0">{{$banner->title}}</h5>
+                                    </div>
+
+                                    <div class="d-flex align-content-start mb-2">
+                                        <p class="text-muted mb-0">{!! $banner->description !!}</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    @endif
-                    <!-- /End Single Banner  -->
-                @endforeach
-            @endif
-        </div>
+                    @endforeach
+                </div>
+            </div>
+
+        </section>
     </div>
-</section>
+
 <!-- End Small Banner -->
 
 <!-- Start Product Area -->
@@ -74,7 +105,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Trending Item</h2>
+                        <h2>Trending Products</h2>
                     </div>
                 </div>
             </div>
@@ -164,177 +195,169 @@
         </div>
 </div>
 <!-- End Product Area -->
-{{-- @php
-    $featured=DB::table('products')->where('is_featured',1)->where('status','active')->orderBy('id','DESC')->limit(1)->get();
-@endphp --}}
-<!-- Start Midium Banner  -->
-<section class="midium-banner">
-    <div class="container">
-        <div class="row">
-            @if($featured)
-                @foreach($featured as $data)
-                    <!-- Single Banner  -->
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="single-banner">
-                            @php
-                                $photo=explode(',',$data->photo);
-                            @endphp
-                            <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                            <div class="content">
-                                <p>{{$data->cat_info['title']}}</p>
-                                <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
-                                <a href="{{route('product-detail',$data->slug)}}">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /End Single Banner  -->
-                @endforeach
-            @endif
-        </div>
-    </div>
-</section>
-<!-- End Midium Banner -->
 
-<!-- Start Most Popular -->
-<div class="product-area most-popular section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>Hot Item</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="owl-carousel popular-slider">
-                    @foreach($product_lists as $product)
-                        @if($product->condition=='hot')
-                            <!-- Start Single Product -->
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="{{route('product-detail',$product->slug)}}">
-                                    @php
-                                        $photo=explode(',',$product->photo);
-                                    // dd($photo);
-                                    @endphp
-                                    <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                    <img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                    {{-- <span class="out-of-stock">Hot</span> --}}
-                                </a>
-                                <div class="button-head">
-                                    <div class="product-action">
-                                        <a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" ><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                    </div>
-                                    <div class="product-action-2">
-                                        <a href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
-                                <div class="product-price">
-                                    <span class="old">${{number_format($product->price,2)}}</span>
-                                    @php
-                                    $after_discount=($product->price-($product->price*$product->discount)/100)
-                                    @endphp
-                                    <span>${{number_format($after_discount,2)}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Product -->
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Most Popular Area -->
 
 <!-- Start Shop Home List  -->
-<section class="shop-home-list section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="shop-section-title">
-                            <h1>Latest Items</h1>
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-4">
+                    <div class="card shadow-0 border rounded-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                    <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                                             class="w-100" />
+                                        <a href="#!">
+                                            <div class="hover-overlay">
+                                                <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <h5>Quant trident shirts</h5>
+                                    <div class="d-flex flex-row">
+                                        <div class="text-danger mb-1 me-2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <span>310</span>
+                                    </div>
+                                    <div class="mt-1 mb-0 text-muted small">
+                                        <span>100% cotton</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Light weight</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Best finish<br /></span>
+                                    </div>
+                                    <div class="mb-2 text-muted small">
+                                        <span>Unique design</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>For men</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Casual<br /></span>
+                                    </div>
+                                    <p class="text-truncate mb-4 mb-md-0">
+                                        There are many variations of passages of Lorem Ipsum available, but the
+                                        majority have suffered alteration in some form, by injected humour, or
+                                        randomised words which don't look even slightly believable.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    @php
-                        $product_lists=DB::table('products')->where('status','active')->orderBy('id','DESC')->limit(6)->get();
-                    @endphp
-                    @foreach($product_lists as $product)
-                        <div class="col-md-4">
-                            <!-- Start Single List  -->
-                            <div class="single-list">
-                                <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="list-image overlay">
-                                        @php
-                                            $photo=explode(',',$product->photo);
-                                            // dd($photo);
-                                        @endphp
-                                        <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                        <a href="{{route('add-to-cart',$product->slug)}}" class="buy"><i class="fa fa-shopping-bag"></i></a>
+                <div class="col-md-4">
+                    <div class="card shadow-0 border rounded-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                    <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                                             class="w-100" />
+                                        <a href="#!">
+                                            <div class="hover-overlay">
+                                                <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-12 no-padding">
-                                    <div class="content">
-                                        <h4 class="title"><a href="#">{{$product->title}}</a></h4>
-                                        <p class="price with-discount">${{number_format($product->discount,2)}}</p>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <h5>Quant trident shirts</h5>
+                                    <div class="d-flex flex-row">
+                                        <div class="text-danger mb-1 me-2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <span>310</span>
                                     </div>
-                                </div>
+                                    <div class="mt-1 mb-0 text-muted small">
+                                        <span>100% cotton</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Light weight</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Best finish<br /></span>
+                                    </div>
+                                    <div class="mb-2 text-muted small">
+                                        <span>Unique design</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>For men</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Casual<br /></span>
+                                    </div>
+                                    <p class="text-truncate mb-4 mb-md-0">
+                                        There are many variations of passages of Lorem Ipsum available, but the
+                                        majority have suffered alteration in some form, by injected humour, or
+                                        randomised words which don't look even slightly believable.
+                                    </p>
                                 </div>
                             </div>
-                            <!-- End Single List  -->
                         </div>
-                    @endforeach
-
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-0 border rounded-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                    <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                                             class="w-100" />
+                                        <a href="#!">
+                                            <div class="hover-overlay">
+                                                <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <h5>Quant trident shirts</h5>
+                                    <div class="d-flex flex-row">
+                                        <div class="text-danger mb-1 me-2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <span>310</span>
+                                    </div>
+                                    <div class="mt-1 mb-0 text-muted small">
+                                        <span>100% cotton</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Light weight</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Best finish<br /></span>
+                                    </div>
+                                    <div class="mb-2 text-muted small">
+                                        <span>Unique design</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>For men</span>
+                                        <span class="text-primary"> • </span>
+                                        <span>Casual<br /></span>
+                                    </div>
+                                    <p class="text-truncate mb-4 mb-md-0">
+                                        There are many variations of passages of Lorem Ipsum available, but the
+                                        majority have suffered alteration in some form, by injected humour, or
+                                        randomised words which don't look even slightly believable.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-    </div>
-</section>
+    </section>
 <!-- End Shop Home List  -->
 
-<!-- Start Shop Blog  -->
-<section class="shop-blog section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>From Our Blog</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            @if($posts)
-                @foreach($posts as $post)
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <!-- Start Single Blog  -->
-                        <div class="shop-single-blog">
-                            <img src="{{$post->photo}}" alt="{{$post->photo}}">
-                            <div class="content">
-                                <p class="date">{{$post->created_at->format('d M , Y. D')}}</p>
-                                <a href="{{route('blog.detail',$post->slug)}}" class="title">{{$post->title}}</a>
-                                <a href="{{route('blog.detail',$post->slug)}}" class="more-btn">Continue Reading</a>
-                            </div>
-                        </div>
-                        <!-- End Single Blog  -->
-                    </div>
-                @endforeach
-            @endif
 
-        </div>
-    </div>
-</section>
-<!-- End Shop Blog  -->
 
 <!-- Start Shop Services Area -->
 <section class="shop-services section home">
