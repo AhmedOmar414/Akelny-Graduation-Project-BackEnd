@@ -38,7 +38,16 @@ class FrontendController extends Controller
                 ->with('banners',$banners)
                 ->with('product_lists',$products)
                 ->with('category_lists',$category);
-    }   
+    }
+    public function menu($id){
+        if (\Illuminate\Support\Facades\Auth::user()){
+            $restaurant = User::with('categories.products')->find($id);
+            return view('frontend.pages.menu',compact('restaurant'));
+        }else{
+            return redirect()->route('login.form')->with('message','Login to continue');
+        }
+
+    }
 
     public function aboutUs(){
         return view('frontend.pages.about-us');

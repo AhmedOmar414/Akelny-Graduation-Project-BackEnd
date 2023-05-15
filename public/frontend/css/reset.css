@@ -1873,4 +1873,35 @@ object {
   -webkit-transform-origin:bottom left;
   transform-origin:bottom left
  }
+
+
+}
+.views-btn {
+	width: 26px;
+	height: 26px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	outline: none;
+	padding-top: 2px;
+	justify-content: center;
+	border-radius: 20px;
+	font-size: 14px;
+	color:rgb(229, 69, 69);
+}
+.text-views{
+	width: 95%;
+	height: 30px;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 2.5% ;
+}
+.op {
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.op:hover {
+	opacity: 0.6;
+
 }

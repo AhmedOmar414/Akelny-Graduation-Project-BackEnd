@@ -169,6 +169,8 @@ Route::post('restaurant/register',[\App\Http\Controllers\Restaurant\Auth\Registe
 // User section start
 Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
     Route::get('/','HomeController@index')->name('user');
+    //menu page
+    Route::get('/menu/{id}','HomeController@menu')->name('menu');
      // Profile
      Route::get('/profile','HomeController@profile')->name('user-profile');
      Route::post('/profile/{id}','HomeController@profileUpdate')->name('user-profile-update');
