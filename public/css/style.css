@@ -20,14 +20,14 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     padding: 0 20px;
-    position: fixed; 
+    position: fixed;
     margin-bottom: 0px;
     z-index: 5555;
     float: left;
 }
 .buyNow button{
     width:100px ;
-    height:35px ; 
+    height:35px ;
     font-size: 14px;
     font-weight: 500;
     font-family: 'Manrope';
@@ -52,7 +52,7 @@ body::-webkit-scrollbar-thumb {
 }
 .nav .collecter{
     width: 76.5%;
-    display: grid; 
+    display: grid;
     grid-template-columns: 35%  65%;
 }
 .nav .navbar{
@@ -105,8 +105,8 @@ body::-webkit-scrollbar-thumb {
 }
 .bi-caret-down-fill ,.nav-item .bi-caret-down-fill  {
     font-size:9px ;
-    width: 10px; 
-    height: 10px; 
+    width: 10px;
+    height: 10px;
     margin-top: 13px;
 }
 .redBtn{
@@ -377,7 +377,7 @@ body::-webkit-scrollbar-thumb {
     display: inline-block;
     width: 100%;
     height: max-content;
-    
+
 }
 
 .sidebar-nav li:before {
@@ -414,7 +414,7 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     font-size: 13px;
     height: 55px;
-    padding: 10px 15px 10px 35px;    
+    padding: 10px 15px 10px 35px;
     background: #fff;
     border-bottom: 0.5px solid rgb(232, 232, 232);
     display: flex;
@@ -430,7 +430,7 @@ body::-webkit-scrollbar-thumb {
     width: 20px;
 }
 .sidebar-nav .dropdown-menu li a {
-    padding-left:  80px;    
+    padding-left:  80px;
 }
 
 .sidebar-nav li a:hover,
@@ -461,7 +461,7 @@ body::-webkit-scrollbar-thumb {
     background:#212531;
     background: linear-gradient(#444447 , #2c303b );
     display: flex;
-    align-items: center; 
+    align-items: center;
     padding-left: 2em;
     color: #fff;
 }
@@ -538,8 +538,8 @@ body::-webkit-scrollbar-thumb {
 .hamburger.is-closed .hamb-bottom {
   background-color: #1a1a1a;
 }
-.hamburger.is-closed .hamb-top { 
-  top: 5px; 
+.hamburger.is-closed .hamb-top {
+  top: 5px;
   -webkit-transition: all .35s ease-in-out;
 }
 .hamburger.is-closed .hamb-middle {
@@ -547,7 +547,7 @@ body::-webkit-scrollbar-thumb {
   margin-top: -1px;
 }
 .hamburger.is-closed .hamb-bottom {
-  bottom: 6px;  
+  bottom: 6px;
   -webkit-transition: all .35s ease-in-out;
 }
 
@@ -565,7 +565,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #1a1a1a;
 }
 
-.hamburger.is-open .hamb-top { 
+.hamburger.is-open .hamb-top {
   -webkit-transform: rotate(45deg);
   -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
 }
@@ -809,7 +809,7 @@ body::-webkit-scrollbar-thumb {
         margin: 3px 3px;
         padding: 1px 30px;
     }
-    
+
     .btn1{
         left: -1%;
     }
@@ -819,7 +819,7 @@ body::-webkit-scrollbar-thumb {
     .item-offers{
         height: 220px;
     }
-    
+
 }
 
 /*-----------------------------------views---------------------------*/
@@ -1068,7 +1068,7 @@ body::-webkit-scrollbar-thumb {
 }
 .row-popular .up-part{
     height: 155px;
-} 
+}
 .time .time-spn {
     background-color: rgb(255, 196, 0);
     color: #fff;
@@ -1116,13 +1116,13 @@ body::-webkit-scrollbar-thumb {
     border: none;
 }
 .buttons-group .btn1{
-    background-color: rgb(225, 16, 86); 
-    color: #fff; 
+    background-color: rgb(225, 16, 86);
+    color: #fff;
     height: 37px;
     width: 150px;
 }
 .buttons-group .btn2{
-    background-color:rgb(237, 237, 237); 
+    background-color:rgb(237, 237, 237);
     height: 37px;
     width: 120px;
 }
@@ -1156,7 +1156,7 @@ body::-webkit-scrollbar-thumb {
     }
     .row-popular .up-part{
         height: 260px;
-    } 
+    }
     .inputSearch{
         padding: 10px 0 20px;
     }
@@ -1186,7 +1186,7 @@ body::-webkit-scrollbar-thumb {
 .mst-ppulr .links{
     margin: 50px 0 10px ;
 }
- 
+
 @media (max-width: 990px){
     .trending .links,
     .mst-ppulr .links{
@@ -1259,7 +1259,7 @@ body::-webkit-scrollbar-thumb {
     .card-sales .row-sales{
         grid-template-columns: 35% 65%;
     }
-    
+
 }
 
 /*--------------------------------footer------------------------------*/
@@ -1267,7 +1267,7 @@ body::-webkit-scrollbar-thumb {
 .footer{
     margin: auto;
     width: 100%;
-    height: 610px;
+    height: 500px;
     background-color: #000;
     position: relative;
 }
@@ -1360,7 +1360,7 @@ body::-webkit-scrollbar-thumb {
     position: relative;
 }
 .app-btn img{
-    width: 100%; 
+    width: 100%;
     height: 100%;
 }
 .simplefooter{
@@ -1446,7 +1446,7 @@ body::-webkit-scrollbar-thumb {
     word-spacing: 2px;
 }
 .offers-caption .cover img{
-    height: 80%; 
+    height: 80%;
     width: 190px;
 }
 .offers-caption .cover2{
@@ -1462,14 +1462,14 @@ body::-webkit-scrollbar-thumb {
     z-index: 1;
 }
 .btn-offers{
-    width:7%; 
+    width:7%;
     height: 33px;
 }
 .btn-offers .btnOfer{
     height: 100%;
     display: flex;
     justify-content: center;
-    font-size: 13px; 
+    font-size: 13px;
     border-radius: 4px;
 }
 .btn-offers a:hover{
@@ -1490,13 +1490,13 @@ body::-webkit-scrollbar-thumb {
     font-weight: 500;
  }
  .offers-caption .offers-p2{
-    font-size: 12px; 
-    font-weight: 500; 
+    font-size: 12px;
+    font-weight: 500;
     color: rgb(116, 116, 116);
  }
 .buttons-group .btn-offers{
     color: rgb(229, 69, 69);
-    height:50px; 
+    height:50px;
     border: none;
     border-radius: 0%;
     font-size: 13px;
@@ -1541,7 +1541,7 @@ body::-webkit-scrollbar-thumb {
  }
  @media (max-width: 990px){
     .offers-caption .cover img{
-        height: 60%; 
+        height: 60%;
         width: 120px;
     }
      .offers-caption .collecter{
@@ -1601,7 +1601,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
  }
  .menu .right-side .list-group{
-    font-weight: 400; 
+    font-weight: 400;
     border-radius: 0;
     font-size: 18px;
  }
@@ -1644,7 +1644,7 @@ body::-webkit-scrollbar-thumb {
  .pill{
     display: flex;
  }
- .pill h6, 
+ .pill h6,
  .pill div{
     margin-right: 15px;
  }
@@ -1669,9 +1669,9 @@ body::-webkit-scrollbar-thumb {
     height: 33px;
     display: flex;
     justify-content: center;
-    font-size: 13px; 
+    font-size: 13px;
     border-radius: 4px;
-    width:50px; 
+    width:50px;
  }
  .right-side .img{
     width: 45px;
@@ -1735,28 +1735,28 @@ body::-webkit-scrollbar-thumb {
     border-radius: 3px;
 }
 .reacted-people{
-    width: 15%; 
+    width: 15%;
     display: grid;
     grid-template-columns:20% 20% 20% 20% ;
 }
 .reacted-people img{
     height: 27px;
-    width: 27px; 
+    width: 27px;
     border-radius: 15px;
     border: 2px solid #fff;
     box-shadow: 0px 0px 5px 0.1px rgb(201, 201, 201);
 }
 .form-floating{
-    font-size: 12px;  
-    font-weight: 300; 
+    font-size: 12px;
+    font-weight: 300;
 }
 .right-side .swears{
     display: grid;
     grid-template-columns: 67% 22% 11%;
 }
 .right-side .swears button{
-    height: 27px; 
-    width: 22px; 
+    height: 27px;
+    width: 22px;
     padding: 2px 2px;
     border-radius: 0px;
     display: flex;
@@ -1793,9 +1793,9 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
  #button-addon1, .right-side .iconc{
-    margin: 0px; 
+    margin: 0px;
     font-size: 15px;
-    border-top-right-radius: 0; 
+    border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 .right-side .total-pay{
@@ -1945,8 +1945,8 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 1px solid rgb(199, 199, 199);
 }
 .popup img{
-    width:25px; 
-    height:25px; 
+    width:25px;
+    height:25px;
     cursor: pointer;
 }
 .popup .content{
@@ -1990,14 +1990,14 @@ body::-webkit-scrollbar-thumb {
     overflow-x:hidden;
     margin: 0;
 }
-    
+
 .popupFilter .links{
     padding: 40px 15px  30px;
     border-bottom: 1px solid rgb(199, 199, 199);
 }
 .popupFilter img{
-    width:25px; 
-    height:25px; 
+    width:25px;
+    height:25px;
     cursor: pointer;
 }
 .popupFilter .body-sub-menu {
@@ -2116,7 +2116,7 @@ body::-webkit-scrollbar-thumb {
     transition: all 0.4s ease;
 }
 .content .form .form-text input ,
-.content .form .form-text button , 
+.content .form .form-text button ,
 .content .form .form-text #button-addon1,
 .content .form .form-text select{
     height: 32px;
@@ -2143,9 +2143,9 @@ max-height: 100vh;
 /*---------------------------------MyOrder-------------------------------*/
 
 .myOrder .collecter{
-    display: grid; 
-    grid-template-columns: 23% 74%; 
-    column-gap: 3%; 
+    display: grid;
+    grid-template-columns: 23% 74%;
+    column-gap: 3%;
 }
 .myOrder .side,
 .myOrder .side .card,
@@ -2173,7 +2173,7 @@ max-height: 100vh;
     margin-bottom: 10px;
 }
 .myOrder .side .list-group button:hover{
-    background-color:rgb(243, 243, 243) ; 
+    background-color:rgb(243, 243, 243) ;
 }
 .myOrder .side .card .spnIcon{
     color: #fff;
@@ -2210,7 +2210,7 @@ max-height: 100vh;
     text-align: center;
 }
 .myOrder hr{
-    height: 0.1px; 
+    height: 0.1px;
     background: #000;
 }
 .myOrder .side .card .card-up .sup-card .spn-views{
@@ -2246,7 +2246,7 @@ max-height: 100vh;
     grid-template-columns: 25% 75%;
 }
 .side .card-down .sup-card{
-    display: flex; 
+    display: flex;
     justify-content: end;
     align-items: flex-start;
     height: 42px;
@@ -2282,7 +2282,7 @@ max-height: 100vh;
 }
 @media(max-width: 600px){
     .myOrder .collecter{
-        display: block; 
+        display: block;
         padding-bottom: 50px;
     }
     .myOrder .side{
@@ -2302,7 +2302,7 @@ max-height: 100vh;
     margin-bottom: 6px;
 }
 .viewDetails .header h6{
-    font-weight: 600; 
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -2365,12 +2365,12 @@ max-height: 100vh;
     }
     .successful .collecter .header h1{
         font-size: 30px;
-    } 
+    }
     .successful .collecter .preparingOrder{
         width: 100%;
         padding: 0px 20px 0;
     }
-        
+
     .successful .preparingOrderDiv{
         height: 100px;
     }
@@ -2681,7 +2681,7 @@ max-height: 100vh;
     .liveMap-middel .left .middel .body{
         display: block;
     }
-    
+
 }
 
 
@@ -2693,9 +2693,9 @@ max-height: 100vh;
     background-color: rgb(243, 243, 243);
 }
 .myAccount .collecter{
-    display: grid; 
+    display: grid;
     grid-template-columns: 32.5% 66.65%;
-    column-gap: 10px; 
+    column-gap: 10px;
     padding: 50px 0;
 }
 .myAccount .collecter .right,
@@ -2841,7 +2841,7 @@ max-height: 100vh;
 }
 
 /*------------------------termOfUsePage---------------------*/
- 
+
 .termOfUse-left{
     padding-right: 20px;
 }

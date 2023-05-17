@@ -17,7 +17,9 @@
 		</div>
 	</div>
 	<!-- End Breadcrumbs -->
-
+    @php
+        $cart2 = null;
+    @endphp
 	<!-- Shopping Cart -->
 	<div class="shopping-cart section">
 		<div class="container">
@@ -139,9 +141,24 @@
 											<li class="last" id="order_total_price">You Pay<span>${{number_format($total_amount,2)}}</span></li>
 										@endif
 									</ul>
+
 									<div class="button5">
-										<a href="{{route('checkout')}}" class="btn">Checkout</a>
-										<a href="{{route('product-grids')}}" class="btn">Continue shopping</a>
+                                        @if(\Illuminate\Support\Facades\Auth::check())
+                                            @php
+                                              $cart = \App\Models\Cart::where('user_id',auth()->user()->id)->first();
+                                            @endphp
+                                            @if(!empty($cart))
+                                                <a href="{{asset('/checkout-v2/'.$cart->product_id)}}" class="btn">Checkout</a>
+                                                <a href="{{route('product-grids')}}" class="btn">Continue shopping</a>
+                                            @else
+                                                <a href="{{route('product-grids')}}" class="btn">Shopping</a>
+                                                <a href="{{route('product-grids')}}" class="btn">Continue shopping</a>
+                                              @endif
+
+                                        @else
+                                            <a href="{{route('login.form')}}" class="btn">Login</a>
+                                            <a href="{{route('product-grids')}}" class="btn">Continue shopping</a>
+                                        @endif
 									</div>
 								</div>
 							</div>

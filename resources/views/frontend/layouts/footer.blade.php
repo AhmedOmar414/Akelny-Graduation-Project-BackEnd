@@ -1,94 +1,33 @@
 
 	<!-- Start Footer Area -->
-	<footer class="footer">
-		<!-- Footer Top -->
-		<div class="footer-top section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer about">
-							<div class="logo">
-								<a href="index.html"><img src="{{asset('backend/img/logo2.png')}}" alt="#"></a>
-							</div>
-							@php
-								$settings=DB::table('settings')->get();
-							@endphp
-							<p class="text">@foreach($settings as $data) {{$data->short_des}} @endforeach</p>
-							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">@foreach($settings as $data) {{$data->phone}} @endforeach</a></span></p>
-						</div>
-						<!-- End Single Widget -->
-					</div>
-					<div class="col-lg-2 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer links">
-							<h4>Information</h4>
-							<ul>
-								<li><a href="{{route('about-us')}}">About Us</a></li>
-								<li><a href="#">Faq</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
-								<li><a href="{{route('contact')}}">Contact Us</a></li>
-								<li><a href="#">Help</a></li>
-							</ul>
-						</div>
-						<!-- End Single Widget -->
-					</div>
-					<div class="col-lg-2 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer links">
-							<h4>Customer Service</h4>
-							<ul>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Money-back</a></li>
-								<li><a href="#">Returns</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-						<!-- End Single Widget -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Single Widget -->
-						<div class="single-footer social">
-							<h4>Get In Tuch</h4>
-							<!-- Single Widget -->
-							<div class="contact">
-								<ul>
-									<li>@foreach($settings as $data) {{$data->address}} @endforeach</li>
-									<li>@foreach($settings as $data) {{$data->email}} @endforeach</li>
-									<li>@foreach($settings as $data) {{$data->phone}} @endforeach</li>
-								</ul>
-							</div>
-							<!-- End Single Widget -->
-							<div class="sharethis-inline-follow-buttons"></div>
-						</div>
-						<!-- End Single Widget -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Footer Top -->
-		<div class="copyright">
-			<div class="container">
-				<div class="inner">
-					<div class="row">
-						<div class="col-lg-6 col-12">
-							<div class="left">
-								<p>Copyright © {{date('Y')}} <a href="https://github.com/Prajwal100" target="_blank">Prajwal Rai</a>  -  All Rights Reserved.</p>
-							</div>
-						</div>
-						<div class="col-lg-6 col-12">
-							<div class="right">
-								<img src="{{asset('backend/img/payments.png')}}" alt="#">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- /End Footer Area -->
- 
+    <section class="">
+        <!-- Footer -->
+        <footer class="text-center text-white" style="background-color: #0a4275;">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: CTA -->
+                <section class="">
+                    <p class="d-flex justify-content-center align-items-center">
+                        <span class="me-3" style="color: #c7c7c7">Register for free</span>
+                        <a href="{{route('register.form')}}" type="button" style="margin-left: 20px;color: white" class="btn btn-outline-light btn-rounded">
+                            Sign up!
+                        </a>
+                    </p>
+                </section>
+                <!-- Section: CTA -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2023 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">Akelny Team</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </section>	<!-- /End Footer Area -->
+
 	<!-- Jquery -->
     <script src="{{asset('frontend/js/jquery.min.js')}}"></script>
     <script src="{{asset('frontend/js/jquery-migrate-3.0.0.js')}}"></script>
@@ -125,7 +64,7 @@
 	<!-- Active JS -->
 	<script src="{{asset('frontend/js/active.js')}}"></script>
 
-	
+
 	@stack('scripts')
 	<script>
 		setTimeout(function(){

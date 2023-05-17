@@ -36,6 +36,9 @@ class AdminController extends Controller
         // return $request->all();
         $user=User::findOrFail($id);
         $data=$request->all();
+        if (auth()->user()->role == 'res'){
+            $data['role'] = 'res';
+        }
         $status=$user->fill($data)->save();
         if($status){
             request()->session()->flash('success','Successfully updated your profile');

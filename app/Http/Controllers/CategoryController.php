@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\User;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -168,5 +170,20 @@ class CategoryController extends Controller
         else{
             return response()->json(['status'=>true,'msg'=>'','data'=>$child_cat]);
         }
+    }
+
+    public function categoryRestaurants($id){
+        $products = Product::where('cat_id',$id)->select('id','res_id')->get();
+        $products = $products->unique('res_id');
+        $collection = collect();
+         foreach ($products as $product){
+             $collection->add(User::find($product->res_id));
+         }
+        $restaurants = $collection;
+        return view('frontend.pages.restaurants',compact('restaurants'));
+    }
+    public function allRestaurants(){
+        $restaurants = User::where('role','res')->get();
+        return view('frontend.pages.restaurants',compact('restaurants'));
     }
 }

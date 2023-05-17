@@ -11,7 +11,7 @@
                     <div class="bread-inner">
                         <ul class="bread-list">
                             <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="blog-single.html">{{$restaurant->name}}</a></li>
+                            <li class="active"><a href="blog-single.html">Restaurant Details</a></li>
                         </ul>
                     </div>
                 </div>
@@ -19,7 +19,16 @@
         </div>
     </div>
     <!-- End Breadcrumbs -->
-
+    <div>
+        <h5>Restaurant Details</h5><br>
+        @php
+            $id = request()->route('id');
+            $res = \App\User::find($id);
+        @endphp
+        <img src="{{asset($res->photo)}}" style="width: 150px">
+        <p>{{$res->name}}</p>
+        <hr>
+    </div>
     <!-- Product Style -->
     <form action="{{route('shop.filter')}}" method="POST">
         @csrf
@@ -32,11 +41,24 @@
                             <div class="single-widget category">
                                 <h3 class="title">Categories</h3>
                                 <ul class="categor-list">
-
-                                    @if($restaurant)
-                                              <li>
-                                              @foreach($restaurant->categories as $categories)
-                                                <li><a href="{{route('product-cat',$categories->id)}}">{{$categories->title}}</a></li>
+                                    @php
+                                        // $category = new Category();
+                                        $menu=App\Models\Category::getAllParentWithChild();
+                                    @endphp
+                                    @if($menu)
+                                        <li>
+                                        @foreach($menu as $cat_info)
+                                            @if($cat_info->child_cat->count()>0)
+                                                <li><a href="{{route('product-cat',$cat_info->slug)}}">{{$cat_info->title}}</a>
+                                                    <ul>
+                                                        @foreach($cat_info->child_cat as $sub_menu)
+                                                            <li><a href="{{route('product-sub-cat',[$cat_info->slug,$sub_menu->slug])}}">{{$sub_menu->title}}</a></li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @else
+                                                <li><a href="{{route('product-cat',$cat_info->slug)}}">{{$cat_info->title}}</a></li>
+                                                @endif
                                                 @endforeach
                                                 </li>
                                             @endif
@@ -71,7 +93,45 @@
 
                             </div>
                             <!--/ End Shop By Price -->
+                            <!-- Single Widget -->
+                            <div class="single-widget recent-post">
+                                <h3 class="title">Recent post</h3>
+                            {{-- {{dd($recent_products)}} --}}
+                            @foreach($recent_products as $product)
+                                <!-- Single Post -->
+                                    @php
+                                        $photo=explode(',',$product->photo);
+                                    @endphp
+                                    <div class="single-post first">
+                                        <div class="image">
+                                            <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                                        </div>
+                                        <div class="content">
+                                            <h5><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h5>
+                                            @php
+                                                $org=($product->price-($product->price*$product->discount)/100);
+                                            @endphp
+                                            <p class="price"><del class="text-muted">${{number_format($product->price,2)}}</del>   ${{number_format($org,2)}}  </p>
 
+                                        </div>
+                                    </div>
+                                    <!-- End Single Post -->
+                                @endforeach
+                            </div>
+                            <!--/ End Single Widget -->
+                            <!-- Single Widget -->
+                            <div class="single-widget category">
+                                <h3 class="title">Brands</h3>
+                                <ul class="categor-list">
+                                    @php
+                                        $brands=DB::table('brands')->orderBy('title','ASC')->where('status','active')->get();
+                                    @endphp
+                                    @foreach($brands as $brand)
+                                        <li><a href="{{route('product-brand',$brand->slug)}}">{{$brand->title}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <!--/ End Single Widget -->
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-8 col-12">
@@ -111,8 +171,8 @@
                         </div>
                         <div class="row">
                             {{-- {{$products}} --}}
-                                @foreach($restaurant->categories as $categories)
-                                @foreach($categories->products as $product)
+                            @if(count($products)>0)
+                                @foreach($products as $product)
                                     <div class="col-lg-4 col-md-6 col-12">
                                         <div class="single-product">
                                             <div class="product-img">
@@ -147,8 +207,9 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                @endforeach
-
+                            @else
+                                <h4 class="text-warning" style="margin:100px auto;">There are no products.</h4>
+                            @endif
 
 
 

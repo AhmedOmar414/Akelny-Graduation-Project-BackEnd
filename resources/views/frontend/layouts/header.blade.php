@@ -26,7 +26,6 @@
                                     <li><i class="ti-heart"></i> <a href="{{route('order.track')}}">Favorite Restaurants</a></li>
                                 @endif
                             @endauth
-                        <li><i class="ti-location-pin"></i> <a href="{{route('order.track')}}">Track Order</a></li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth
                                 @if(Auth::user()->role=='admin' ||Auth::user()->role=='res')
@@ -173,7 +172,7 @@
                                             <span>Total</span>
                                             <span class="total-amount">${{number_format(Helper::totalCartPrice(),2)}}</span>
                                         </div>
-                                        <a href="{{route('checkout')}}" class="btn animate">Checkout</a>
+                                        <a href="{{route('checkout-v2',$data->product['id'] ??'')}}" class="btn animate">Checkout</a>
                                     </div>
                                 </div>
                             @endauth

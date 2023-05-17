@@ -16,24 +16,30 @@
 
     <!-- Start Categories -->
     <section class="product" >
-        <div class="product-area most-popular section">
+        <div class="product-area most-popular">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="owl-carousel popular-slider">
-                            @foreach($banners as $category)
-                            <div class="single-product" style="padding-bottom: 40px">
+                        <div class="section-title">
+                            <h2>Categories</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($category_lists as $category)
+                    <div class="col-2">
+                            <div>
+                                <a href="{{route('category-restaurants',$category->id)}}">
                                 <div style="background-color:#ffffff;height: 80px;width: 160px;border-radius: 7px;padding-top: 10px;margin-left: 3px;margin-top: 10px">
                                     <div style="display: flex;align-items: center;justify-content: center">
                                         <img src="{{$category->photo}}" style="width: 40px">
                                     </div>
-                                    <p style="text-align: center">{{$category->name}}</p>
+                                    <p style="text-align: center">{{$category->title}}</p>
                                 </div>
+                                </a>
                             </div>
-                            @endforeach
-
-                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -54,131 +60,19 @@
                 <div class="col-12">
                     <div class="owl-carousel popular-slider">
                         <!-- Start Single Product -->
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                </a>
+                        @foreach($banners as $banner)
+                            @php
+                              $res_name = \App\User::find($banner->user_id);
+                            @endphp
+                            <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
+                                <div class="product-img">
+                                    <a href="{{route('menu',$banner->user_id)}}">
+                                        <img src="{{asset($banner->photo)}}" class="card-img-top" style="height: 300px" alt="Laptop" />
+                                    </a>
 
+                                </div>
                             </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
-                        <div style="margin-left: 5px;margin-right: 5px" class="single-product op">
-                            <div class="product-img">
-                                <a href="">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 300px" alt="Laptop" />
-                                    <div class="text-views "></div>
-                                </a>
-
-                            </div>
-                            <div class="product-content">
-                                <h3><a href="">offer title</a></h3>
-                                <h3><a href="">offer description</a></h3>
-
-                            </div>
-                        </div>
+                        @endforeach
 
                         <!-- End Single Product -->
                     </div>
@@ -226,6 +120,9 @@
                              <!-- Start Single Tab -->
                             @if($product_lists)
                                 @foreach($product_lists as $key=>$product)
+                                    @php
+                                       $res = \App\User::find($product->res_id);
+                                    @endphp
                                 <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->cat_id}}">
                                     <div class="single-product">
                                         <div class="product-img">
@@ -234,7 +131,7 @@
                                                     $photo=explode(',',$product->photo);
                                                 // dd($photo);
                                                 @endphp
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
+                                                <img src="{{asset($product->photo)}}" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
                                                 </div>
                                                 @if($product->stock<=0)
                                                     <span class="out-of-stock">Sale out</span>
@@ -259,6 +156,7 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
+                                            <h3><a href="{{route('product-detail',$product->slug)}}">{{$res->name ?? ''}}</a></h3>
                                             <h3><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
                                             <div class="product-price">
                                                 @php
@@ -292,394 +190,81 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="row">
                         <div class="col-12">
-                            <div class="shop-section-title">
-                                <h1>Most popular</h1>
-
+                            <div class="section-title">
+                                <h2>Popular Restaurants</h2>
                             </div>
                         </div>
                     </div>
-                    <div class="row col-12">
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
 
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
+                    <section class="vh-100">
+                        <div class="container py-5 h-100">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                @foreach($restaurants as $restaurant)
+                                    <div class="col col-md-3 col-lg-5 col-xl-4" style="margin-bottom: 15px">
+                                        <div class="card" style="border-radius: 15px;">
+                                            <div class="card-body p-4">
+                                                <div class="d-flex text-black">
+                                                    <div class="flex-shrink-0" style="margin-right: 20px">
+                                                        <img src="{{asset($restaurant->photo)}}"
+                                                             alt="Generic placeholder image" class="img-fluid"
+                                                             style="width: 200px; border-radius: 10px;">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h5 class="mb-1">{{$restaurant->name}}</h5>
+                                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                                                        <div style="padding-top: 5px;padding-bottom: 5px">
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                        </div>
+                                                        <style>
+                                                            .checked {
+                                                                color: orange;
+                                                            }
+                                                        </style>
+                                                        <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                                                             style="background-color: #efefef;">
+                                                            <div>
+                                                                <p class="small text-muted mb-1">Open Time</p>
+                                                                <p class="mb-0">{{\Carbon\Carbon::parse($restaurant->open_time)->format('g:i A')}}</p>
+                                                            </div>
+                                                            <div class="px-3">
+                                                                <p class="small text-muted mb-1">Close Time</p>
+                                                                <p class="mb-0">{{\Carbon\Carbon::parse($restaurant->close_time)->format('g:i A')}}</p>
+                                                            </div>
+                                                            <div>
+                                                                <p class="small text-muted mb-1">Rating</p>
+                                                                <p class="mb-0">4.5</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex pt-1">
+                                                            <a href="{{route('menu',$restaurant->id)}}" type="button" style="color:white" class="btn btn-outline-primary me-1 flex-grow-1">Menu</a>
+                                                            <a type="button" href="{{route('menu',$restaurant->id)}}" class="btn btn-primary flex-grow-1" style="color: white;margin-left: 3px">Menu</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
+                    </section>
 
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
 
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a style="float: right;color:#ffc107" href="">26 places <i class="fa fa-arrow-circle-right"></i></a>
+                    <a style="float: right;color:#ffc107" href="{{route('all-restaurants')}}">{{\App\User::where('role','res')->count()}} places <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
-    </section>
+    </section><br><br>
     <!-- End Shop popular  -->
-    <!-- Start most sales  -->
-    <section class="shop-home-list section" style="padding-bottom: 0">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="shop-section-title">
-                                <h1>Most Sales</h1>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row col-12">
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/1024px-Barbieri_-_ViaSophia25668.jpg" class="card-img-top" style="height: 160px" alt="Laptop" /><div class="text-views ">
-                                    <button type="button" class="views-btn  " >
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5 class="mb-0">Restaurant Name</h5>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small"><a href="#!" class="text-muted">open time</a></p>
-                                        <p class="small">10:01:am</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="text-muted mb-0">Category: <span class="fw-bold">6</span></p>
-                                        <div class="ms-auto text-warning">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br>
-                    <a style="float: right;color:#ffc107" href="">26 places <i class="fa fa-arrow-circle-right"></i></a>
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Shop sales  -->
-
 
     <!-- Start Shop Services Area -->
-    <section class="shop-services section home">
+    <section style="margin-bottom: 100px" class="shop-services section home">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-12">
@@ -720,11 +305,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section >
     <!-- End Shop Services Area -->
 
-
-@include('frontend.layouts.newsletter')
 
 <!-- Modal -->
 @if($product_lists)

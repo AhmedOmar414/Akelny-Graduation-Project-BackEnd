@@ -25,7 +25,7 @@
 						<div class="bread-inner">
 							<ul class="bread-list">
 								<li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-								<li class="active"><a href="">Shop Details</a></li>
+								<li class="active"><a href="">Product Details</a></li>
 							</ul>
 						</div>
 					</div>
@@ -33,11 +33,11 @@
 			</div>
 		</div>
 		<!-- End Breadcrumbs -->
-				
+
 		<!-- Shop Single -->
 		<section class="shop single section">
 					<div class="container">
-						<div class="row"> 
+						<div class="row">
 							<div class="col-12">
 								<div class="row">
 									<div class="col-lg-6 col-12">
@@ -46,7 +46,7 @@
 											<!-- Images slider -->
 											<div class="flexslider-thumbnails">
 												<ul class="slides">
-													@php 
+													@php
 														$photo=explode(',',$product_detail->photo);
 													// dd($photo);
 													@endphp
@@ -74,19 +74,31 @@
 															@for($i=1; $i<=5; $i++)
 																@if($rate>=$i)
 																	<li><i class="fa fa-star"></i></li>
-																@else 
+																@else
 																	<li><i class="fa fa-star-o"></i></li>
 																@endif
 															@endfor
 													</ul>
 													<a href="#" class="total-review">({{$product_detail['getReview']->count()}}) Review</a>
                                                 </div>
-                                                @php 
+                                                @php
                                                     $after_discount=($product_detail->price-(($product_detail->price*$product_detail->discount)/100));
                                                 @endphp
 												<p class="price"><span class="discount">${{number_format($after_discount,2)}}</span><s>${{number_format($product_detail->price,2)}}</s> </p>
 												<p class="description">{!!($product_detail->summary)!!}</p>
 											</div>
+                                            <hr>
+                                            <a href="{{route('menu',$product_detail->res_id)}}">
+                                            <div>
+                                                <h5>Restaurant Details</h5><br>
+                                                @php
+                                                  $res = \App\User::find($product_detail->res_id);
+                                                @endphp
+                                                <img src="{{asset($res->photo)}}" style="width: 150px">
+                                                <p>{{$res->name}}</p>
+                                                <hr>
+                                            </div>
+                                            </a>
 											<!--/ End Description -->
 											<!-- Color -->
 											{{-- <div class="color">
@@ -104,7 +116,7 @@
 												<div class="size mt-4">
 													<h4>Size</h4>
 													<ul>
-														@php 
+														@php
 															$sizes=explode(',',$product_detail->size);
 															// dd($sizes);
 														@endphp
@@ -118,7 +130,7 @@
 											<!-- Product Buy -->
 											<div class="product-buy">
 												<form action="{{route('single-add-to-cart')}}" method="POST">
-													@csrf 
+													@csrf
 													<div class="quantity">
 														<h6>Quantity :</h6>
 														<!-- Input Order -->
@@ -144,7 +156,7 @@
 													</div>
 												</form>
 
-												<p class="cat">Category :<a href="{{route('product-cat',$product_detail->cat_info['slug'])}}">{{$product_detail->cat_info['title']}}</a></p>
+												<p class="cat">Category :<a ></a></p>
 												@if($product_detail->sub_cat_info)
 												<p class="cat mt-1">Sub Category :<a href="{{route('product-sub-cat',[$product_detail->cat_info['slug'],$product_detail->sub_cat_info['slug']])}}">{{$product_detail->sub_cat_info['title']}}</a></p>
 												@endif
@@ -184,7 +196,7 @@
 													<div class="tab-single review-panel">
 														<div class="row">
 															<div class="col-12">
-																
+
 																<!-- Review -->
 																<div class="comment-review">
 																	<div class="add-review">
@@ -226,13 +238,13 @@
 																			</div>
 																		</div>
 																		<div class="col-lg-12 col-12">
-																			<div class="form-group button5">	
+																			<div class="form-group button5">
 																				<button type="submit" class="btn">Submit</button>
 																			</div>
 																		</div>
 																	</div>
 																</form>
-																@else 
+																@else
 																<p class="text-center p-5">
 																	You need to <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">Login</a> OR <a style="color:blue" href="{{route('register.form')}}">Register</a>
 
@@ -241,10 +253,10 @@
 																@endauth
 																	</div>
 																</div>
-															
+
 																<div class="ratting-main">
 																	<div class="avg-ratting">
-																		{{-- @php 
+																		{{-- @php
 																			$rate=0;
 																			foreach($product_detail->rate as $key=>$rate){
 																				$rate +=$rate
@@ -259,7 +271,7 @@
 																		<div class="rating-author">
 																			@if($data->user_info['photo'])
 																			<img src="{{$data->user_info['photo']}}" alt="{{$data->user_info['photo']}}">
-																			@else 
+																			@else
 																			<img src="{{asset('backend/img/avatar.png')}}" alt="Profile.jpg">
 																			@endif
 																		</div>
@@ -271,7 +283,7 @@
 																					@for($i=1; $i<=5; $i++)
 																						@if($data->rate>=$i)
 																							<li><i class="fa fa-star"></i></li>
-																						@else 
+																						@else
 																							<li><i class="fa fa-star-o"></i></li>
 																						@endif
 																					@endfor
@@ -284,9 +296,9 @@
 																	<!--/ End Single Rating -->
 																	@endforeach
 																</div>
-																
+
 																<!--/ End Review -->
-																
+
 															</div>
 														</div>
 													</div>
@@ -301,7 +313,7 @@
 					</div>
 		</section>
 		<!--/ End Shop Single -->
-		
+
 		<!-- Start Most Popular -->
 	<div class="product-area most-popular related-product section">
         <div class="container">
@@ -322,7 +334,7 @@
                                 <div class="single-product">
                                     <div class="product-img">
 										<a href="{{route('product-detail',$data->slug)}}">
-											@php 
+											@php
 												$photo=explode(',',$data->photo);
 											@endphp
                                             <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
@@ -344,17 +356,17 @@
                                     <div class="product-content">
                                         <h3><a href="{{route('product-detail',$data->slug)}}">{{$data->title}}</a></h3>
                                         <div class="product-price">
-                                            @php 
+                                            @php
                                                 $after_discount=($data->price-(($data->discount*$data->price)/100));
                                             @endphp
                                             <span class="old">${{number_format($data->price,2)}}</span>
                                             <span>${{number_format($after_discount,2)}}</span>
                                         </div>
-                                      
+
                                     </div>
                                 </div>
                                 <!-- End Single Product -->
-                                	
+
                             @endif
                         @endforeach
                     </div>
@@ -363,7 +375,7 @@
         </div>
     </div>
 	<!-- End Most Popular Area -->
-	
+
 
   <!-- Modal -->
   <div class="modal fade" id="modelExample" tabindex="-1" role="dialog">

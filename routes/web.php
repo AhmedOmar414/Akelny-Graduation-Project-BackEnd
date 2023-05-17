@@ -36,7 +36,11 @@ Route::get('/contact','FrontendController@contact')->name('contact');
 Route::post('/contact/message','MessageController@store')->name('contact.store');
 Route::get('product-detail/{slug}','FrontendController@productDetail')->name('product-detail');
 Route::post('/product/search','FrontendController@productSearch')->name('product.search');
-Route::get('/product-cat/{slug}','FrontendController@productCat')->name('product-cat');
+Route::get('/product-cat/{res_id}/{slug}','FrontendController@productCat')->name('product-cat');
+
+Route::get('/category-products/{category_id}/{res_id}',[\App\Http\Controllers\FrontendController::class,'productCat'])->name('category-products');
+
+
 Route::get('/product-sub-cat/{slug}/{sub_slug}','FrontendController@productSubCat')->name('product-sub-cat');
 Route::get('/product-brand/{slug}','FrontendController@productBrand')->name('product-brand');
 // Cart section
@@ -48,7 +52,8 @@ Route::post('cart-update','CartController@cartUpdate')->name('cart.update');
 Route::get('/cart',function(){
     return view('frontend.pages.cart');
 })->name('cart');
-Route::get('/checkout','CartController@checkout')->name('checkout')->middleware('user');
+//Route::get('/checkout/{id}','CartController@checkout')->name('checkout')->middleware('user');
+Route::get('/checkout-v2/{id}','CartController@checkout')->name('checkout-v2')->middleware('user');
 // Wishlist
 Route::get('/wishlist',function(){
     return view('frontend.pages.wishlist');
@@ -90,6 +95,12 @@ Route::post('/coupon-store','CouponController@couponStore')->name('coupon-store'
 Route::get('payment', 'PayPalController@payment')->name('payment');
 Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
+
+
+//restaurant menu
+Route::get('/menu/{id}','FrontendController@menu')->name('menu');
+Route::get('/category-restaurants/{id}','CategoryController@categoryRestaurants')->name('category-restaurants');
+Route::get('/all-restaurants','CategoryController@allRestaurants')->name('all-restaurants');
 
 
 
@@ -169,9 +180,6 @@ Route::post('restaurant/register',[\App\Http\Controllers\Restaurant\Auth\Registe
 // User section start
 Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
     Route::get('/','HomeController@index')->name('user');
-    //menu page
-    Route::get('/menu/{id}','HomeController@menu')->name('menu');
-     // Profile
      Route::get('/profile','HomeController@profile')->name('user-profile');
      Route::post('/profile/{id}','HomeController@profileUpdate')->name('user-profile-update');
     //  Order

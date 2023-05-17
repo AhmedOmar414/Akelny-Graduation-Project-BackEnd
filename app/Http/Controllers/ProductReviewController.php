@@ -51,6 +51,8 @@ class ProductReviewController extends Controller
         // return $request->all();
         $data=$request->all();
         $data['product_id']=$product_info->id;
+        $product = Product::find($data['product_id']);
+        $data['res_id'] = $product->res_id;
         $data['user_id']=$request->user()->id;
         $data['status']='active';
         // dd($data);
