@@ -36,6 +36,7 @@ Route::get('/contact','FrontendController@contact')->name('contact');
 Route::post('/contact/message','MessageController@store')->name('contact.store');
 Route::get('product-detail/{slug}','FrontendController@productDetail')->name('product-detail');
 Route::post('/product/search','FrontendController@productSearch')->name('product.search');
+Route::post('/product/filterr','FrontendController@productFilterr')->name('product.filterr');
 Route::get('/product-cat/{res_id}/{slug}','FrontendController@productCat')->name('product-cat');
 
 Route::get('/category-products/{category_id}/{res_id}',[\App\Http\Controllers\FrontendController::class,'productCat'])->name('category-products');
@@ -78,7 +79,10 @@ Route::post('/blog/filter','FrontendController@blogFilter')->name('blog.filter')
 Route::get('blog-cat/{slug}','FrontendController@blogByCategory')->name('blog.category');
 Route::get('blog-tag/{slug}','FrontendController@blogByTag')->name('blog.tag');
 
-// NewsLetter
+Route::get('paypal/{total_amount}', 'PayPalController@paypal')->name('paypal');
+Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+Route::get('/sssuccess', 'PayPalController@paypalSuccess')->name('paypal.success');// NewsLetter
+
 Route::post('/subscribe','FrontendController@subscribe')->name('subscribe');
 
 // Product Review

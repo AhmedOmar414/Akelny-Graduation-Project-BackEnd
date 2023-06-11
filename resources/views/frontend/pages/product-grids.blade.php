@@ -24,6 +24,7 @@
                 <img src="{{asset($res->photo)}}" style="width: 150px">
                 <div>
                     <h5 style="padding-top: 30px;margin-left: 15px">{{$res->name}}</h5>
+                    <p style="margin-top: 10px;margin-left: 15px">{{$res->address}}</p>
                     <div class="row" style="padding-top: 15px;margin-left: 15px">
                         <p>open at {{\Carbon\Carbon::parse($res->open_time)->format('g:i A')}}</p>
                     </div>
@@ -78,17 +79,8 @@
 											@endforeach
 										</li>
 										@endif
-                                        {{-- @foreach(Helper::productCategoryList('products') as $cat)
-                                            @if($cat->is_parent==1)
-												<li><a href="{{route('product-cat',$cat->slug)}}">{{$cat->title}}</a></li>
-											@endif
-                                        @endforeach --}}
                                     </ul>
                                 </div>
-
-                                <!--/ End Single Widget -->
-                                <!-- Single Widget -->
-
                                 <!--/ End Single Widget -->
                         </div>
                     </div>
@@ -97,7 +89,6 @@
                             <div class="col-12">
                                 <!-- Shop Top -->
                                 <div class="shop-top">
-
                                 </div>
                                 <!--/ End Shop Top -->
                             </div>
@@ -313,7 +304,7 @@
     .filter_button{
         /* height:20px; */
         text-align: center;
-        background:#F7941D;
+        background:#109dda;
         padding:8px 16px;
         margin-top:10px;
         color: white;

@@ -28,16 +28,18 @@
                         <div class="row col-12">
                             @foreach($restaurants as $restaurant)
                                 <div class="col-md-3">
-                                    <div class="card" style="height: 280px;margin-bottom: 5px;width: 250px;">
+                                    <div class="card" style="height: 320px;margin-bottom: 5px;width: 250px;">
 
-                                        <img src="{{asset($restaurant->photo)}}" class="card-img-top" style="height: 160px" alt="Laptop" />
+                                        <img src="{{asset($restaurant->photo)}}" class="card-img-top" style="height: 140px;margin-left: 50px;width: 150px" alt="Laptop" />
 
                                         <a href="{{route('menu',$restaurant->id)}}">
                                             <div class="card-body">
-                                                <div class="d-flex justify-content-between">
+                                                <div class="">
                                                     <h5 class="mb-0">{{$restaurant->name}}</h5>
+                                                    <p style="margin-top: 10px">{{$restaurant->address}}</p>
+
                                                 </div>
-                                                <div class="d-flex justify-content-between">
+                                                <div class="">
                                                     <p class="small"><a href="#!" class="text-muted">open time</a></p>
                                                     <p class="small">{{\Carbon\Carbon::parse($restaurant->open_time)->format('g:i A')}}</p>
                                                 </div>
@@ -80,7 +82,7 @@
         .filter_button{
             /* height:20px; */
             text-align: center;
-            background:#F7941D;
+            background:#109dda;
             padding:8px 16px;
             margin-top:10px;
             color: white;

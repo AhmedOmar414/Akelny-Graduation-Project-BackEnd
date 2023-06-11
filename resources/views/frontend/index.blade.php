@@ -4,7 +4,7 @@
     <style>
         .product{
             width: 100%;
-            height: 250px;
+            height: 150px;
             background-color: rgb(243, 243, 243);
             display: flex;
             align-items: center;
@@ -18,19 +18,12 @@
     <section class="product" >
         <div class="product-area most-popular">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title">
-                            <h2>Categories</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
+                <div class="row" style="margin-right: -170px;margin-left: -170px">
                     @foreach($category_lists as $category)
                     <div class="col-2">
                             <div>
                                 <a href="{{route('category-restaurants',$category->id)}}">
-                                <div style="background-color:#ffffff;height: 80px;width: 160px;border-radius: 7px;padding-top: 10px;margin-left: 3px;margin-top: 10px">
+                                <div style="background-color:#ffffff;height: 80px;width: 220px;border-radius: 7px;padding-top: 10px;margin-left: 3px;margin-top: 10px">
                                     <div style="display: flex;align-items: center;justify-content: center">
                                         <img src="{{$category->photo}}" style="width: 40px">
                                     </div>
@@ -51,12 +44,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-title">
+                    <div class="section-title" style="margin-top: -80px">
                         <h2>Offers</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: -70px;margin-bottom: -70px;margin-right: -170px;margin-left: -170px">
                 <div class="col-12">
                     <div class="owl-carousel popular-slider">
                         <!-- Start Single Product -->
@@ -92,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-right: -170px;margin-left: -170px">
                 <div class="col-12">
                     <div class="product-info">
                         <div class="nav-main">
@@ -196,7 +189,7 @@
                         </div>
                     </div>
 
-                    <section class="vh-100">
+                    <section class="vh-100" style="margin-right: -170px;margin-left: -170px">
                         <div class="container py-5 h-100">
                             <div class="row d-flex justify-content-center align-items-center h-100">
                                 @foreach($restaurants as $restaurant)
@@ -211,6 +204,7 @@
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
                                                         <h5 class="mb-1">{{$restaurant->name}}</h5>
+                                                        <p style="margin-top: 10px">{{$restaurant->address}}</p>
                                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
                                                         <div style="padding-top: 5px;padding-bottom: 5px">
@@ -256,7 +250,7 @@
                     </section>
 
 
-                    <a style="float: right;color:#ffc107" href="{{route('all-restaurants')}}">{{\App\User::where('role','res')->count()}} places <i class="fa fa-arrow-circle-right"></i></a>
+                    <a style="float: right;color:#109dda" href="{{route('all-restaurants')}}">{{\App\User::where('role','res')->count()}} places <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -470,7 +464,7 @@
         font-size: 50px;
         font-weight: bold;
         line-height: 100%;
-        color: #F7941D;
+        color: #109dda;
         }
 
         #Gslider .carousel-inner .carousel-caption p {

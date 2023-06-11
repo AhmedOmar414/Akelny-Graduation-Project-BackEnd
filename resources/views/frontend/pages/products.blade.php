@@ -12,12 +12,30 @@
                         <ul class="bread-list">
                             <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
                             <li class="active"><a href="blog-single.html">All Products</a></li>
-                        </ul>
+                        </ul><br><br>
+                        <div>
+                            <form method="post" action="{{route('product.filterr')}}">
+                                @csrf
+                                <p>Filter By Price</p><br>
+                                <div class="row">
+                                    <div class="form-group" style="width: 20%;margin-left: 15px">
+                                        <input type="text" required class="form-control" name="min_price"  placeholder="minimum price" style="padding: 10px"><br>
+                                    </div>
+                                    <div class="form-group" style="width: 20%;margin-left: 20px">
+                                        <input type="text" required class="form-control" name="max_price" placeholder="maximum price" style="padding: 10px">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-left: 20px;height: 45px">Filter</button>
+
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div><br><br>
         </div>
     </div>
+
     <!-- End Breadcrumbs -->
     <section style="background-color: #eee;">
         <div class="container py-5">
@@ -39,7 +57,7 @@
                                                     $photo1 = $data;
                                                 @endphp
                                                     <img src="{{asset($data)}}"
-                                                         class="w-100" />
+                                                         class="w-100" style="height: 170px" />
                                                 @break
                                             @endforeach
 
@@ -51,7 +69,17 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-lg-6 col-xl-6">
+                                        @php
+                                        @endphp
                                         <h5>{{$product->title}}</h5>
+                                        <div class="row">
+                                            <img src="{{$product->resturant->photo}}" style="width: 70px;margin-top: 5px;margin-bottom: 10px">
+                                            <div class="col">
+                                                <h6 style="margin-top: 20px">{{$product->resturant->name}}</h6><br>
+                                                <p style="margin-top: -20px">{{$product->resturant->address}}</p>
+                                            </div>
+
+                                        </div>
                                         <p class="text-truncate mb-4 mb-md-0">
                                           {!! \Illuminate\Support\Str::limit($product->description,600)  !!}
                                         </p>
@@ -91,7 +119,7 @@
     .filter_button{
         /* height:20px; */
         text-align: center;
-        background:#F7941D;
+        background:#109dda;
         padding:8px 16px;
         margin-top:10px;
         color: white;

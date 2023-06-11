@@ -2,7 +2,7 @@
 	<!-- Start Footer Area -->
     <section class="">
         <!-- Footer -->
-        <footer class="text-center text-white" style="background-color: #0a4275;">
+        <footer class="text-center text-white" style="background-color: #109dda;">
             <!-- Grid container -->
             <div class="container p-4 pb-0">
                 <!-- Section: CTA -->
@@ -21,7 +21,7 @@
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                 © 2023 Copyright:
-                <a class="text-white" href="https://mdbootstrap.com/">Akelny Team</a>
+                <a class="text-white" href="https://mdbootstrap.com/">Akalni Team</a>
             </div>
             <!-- Copyright -->
         </footer>

@@ -63,9 +63,7 @@ class ProductController extends Controller
             'price'=>'required|numeric',
             'discount'=>'nullable|numeric'
         ]);
-
-        $data=$request->all();
-        $slug=Str::slug($request->title);
+        $data=$request->all();$slug=Str::slug($request->title);
         if (auth()->user()->role == 'res'){
             $data['res_id'] = auth()->user()->id;
         }
@@ -73,17 +71,13 @@ class ProductController extends Controller
         if($count>0){
             $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
         }
-        $data['slug']=$slug;
-        $data['is_featured']=$request->input('is_featured',0);
-        $size=$request->input('size');
+        $data['slug']=$slug;$data['is_featured']=$request->input('is_featured',0);$size=$request->input('size');
         if($size){
             $data['size']=implode(',',$size);
         }
         else{
             $data['size']='';
         }
-        // return $size;
-        // return $data;
         $status=Product::create($data);
         if($status){
             request()->session()->flash('success','Product Successfully added');

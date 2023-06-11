@@ -173,7 +173,7 @@
                                 <!-- Payment Method Widget -->
                                 <div class="single-widget payement">
                                     <div class="content">
-                                        <img src="{{('backend/img/payment-method.png')}}" alt="#">
+                                        <img src="{{asset('backend/img/payment-method.png')}}" alt="#"><br>
                                     </div>
                                 </div>
                                 <!--/ End Payment Method Widget -->
@@ -282,7 +282,7 @@
 			margin-bottom:0 !important;
 		}
 		.list li:hover{
-			background:#F7941D !important;
+			background:#109dda !important;
 			color:white !important;
 		}
 		.form-select .nice-select::after {

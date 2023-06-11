@@ -272,6 +272,14 @@ class FrontendController extends Controller
         return view('frontend.pages.products')->with('products',$products)->with('recent_products',$recent_products);
     }
 
+    public function productFilterr(Request $request){
+        $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();
+        $products=Product::where('price','>=',$request->min_price)->where('price','<=',$request->max_price)
+            ->orderBy('id','DESC')
+            ->paginate('9');
+        return view('frontend.pages.products')->with('products',$products)->with('recent_products',$recent_products);
+    }
+
     public function productBrand(Request $request){
         $products=Brand::getProductByBrand($request->slug);
         $recent_products=Product::where('status','active')->orderBy('id','DESC')->limit(3)->get();

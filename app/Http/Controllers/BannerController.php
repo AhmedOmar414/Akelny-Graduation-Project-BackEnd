@@ -18,6 +18,25 @@ class BannerController extends Controller
         return view('backend.banner.index')->with('banners',$banner);
     }
 
+    public function testProductSearch()
+    {
+        // Create some products
+        $products = factory(Product::class, 5)->create();
+
+        // Search for a product
+        $response = $this->get('/search?q=' . $products[0]->name);
+
+        // Check that the response is successful
+        $response->assertStatus(200);
+
+        // Check that the correct product is in the search results
+        $response->assertSee($products[0]->name);
+        $response->assertDontSee($products[1]->name);
+        $response->assertDontSee($products[2]->name);
+        $response->assertDontSee($products[3]->name);
+        $response->assertDontSee($products[4]->name);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

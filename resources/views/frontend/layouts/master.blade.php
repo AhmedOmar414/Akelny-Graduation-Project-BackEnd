@@ -2,6 +2,8 @@
 <html lang="zxx">
 <head>
 	@include('frontend.layouts.head')
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 </head>
 <body class="js">
 

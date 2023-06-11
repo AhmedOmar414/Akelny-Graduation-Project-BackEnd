@@ -27,6 +27,7 @@
         @endphp
         <img src="{{asset($res->photo)}}" style="width: 150px">
         <p>{{$res->name}}</p>
+
         <hr>
     </div>
     <!-- Product Style -->
@@ -385,7 +386,7 @@
         .filter_button{
             /* height:20px; */
             text-align: center;
-            background:#F7941D;
+            background:#109dda;
             padding:8px 16px;
             margin-top:10px;
             color: white;

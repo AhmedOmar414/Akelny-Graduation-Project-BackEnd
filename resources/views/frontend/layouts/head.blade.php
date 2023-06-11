@@ -1,5 +1,7 @@
 <!-- Meta Tag -->
 @yield('meta')
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 <!-- Title Tag  -->
 <title>@yield('title')</title>
 <!-- Favicon -->

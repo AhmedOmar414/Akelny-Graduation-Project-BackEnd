@@ -2,8 +2,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
-      <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+      <div class="sidebar-brand-icon">
+          <img src="@foreach(\App\Models\Settings::all() as $data) {{$data->logo}} @endforeach" alt="logo" style="width: 40px">
       </div>
         @if(auth()->user()->role == 'res')
             <div class="sidebar-brand-text mx-3">Restaurant</div>

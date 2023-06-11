@@ -2,6 +2,7 @@
 <html lang="en">
 
 @include('user.layouts.head')
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <body id="page-top">
 

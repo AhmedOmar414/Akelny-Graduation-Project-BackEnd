@@ -519,7 +519,7 @@
 		float: right;
 		padding-left: 2px;
 		cursor: pointer;
-		color: #F7941D;
+		color: #109dda;
 		font-size: 16px;
 		margin-top: 5px;
 		}

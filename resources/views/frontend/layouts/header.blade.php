@@ -21,11 +21,7 @@
                     <!-- Top Right -->
                     <div class="right-content">
                         <ul class="list-main">
-                            @auth
-                                @if(Auth::user()->role=='admin')
-                                    <li><i class="ti-heart"></i> <a href="{{route('order.track')}}">Favorite Restaurants</a></li>
-                                @endif
-                            @endauth
+
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth
                                 @if(Auth::user()->role=='admin' ||Auth::user()->role=='res')
@@ -57,7 +53,7 @@
                         @php
                             $settings=DB::table('settings')->get();
                         @endphp
-                        <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="logo"></a>
+                        <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="logo"><span style="font-weight: 500;font-size: 20px">Akelny</span></a>
                     </div>
                     <!--/ End Logo -->
                     <!-- Search Form -->
@@ -67,7 +63,7 @@
                         <div class="search-top">
                             <form class="search-form">
                                 <input type="text" placeholder="Search here..." name="search">
-                                <button value="search" type="submit"><i class="ti-search"></i></button>
+                                <button value="search" type="submit" style="background-color: #109dda"><i class="ti-search"></i></button>
                             </form>
                         </div>
                         <!--/ End Search Form -->
@@ -87,7 +83,7 @@
                             <form method="POST" action="{{route('product.search')}}">
                                 @csrf
                                 <input name="search" placeholder="Search Products Here....." type="search">
-                                <button class="btnn" type="submit"><i class="ti-search"></i></button>
+                                <button class="btnn" type="submit" style="background-color: #109dda"><i class="ti-search"></i></button>
                             </form>
                         </div>
                     </div>
